@@ -5,9 +5,11 @@ public class Task4 {
     public static void main(String[] args) {
         double lenghtHole = 4;
         double widthHole = 3;
+
         double lenghtBrick = 5.5;
         double widthBrick = 3;
         double heightBrick = 3.5;
+
         double minSize;
         double middleSize;
 

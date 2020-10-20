@@ -8,6 +8,7 @@ public class Task7 {
         int number2Copy;
         int numeral;
 
+
         while (number1 > 0) {
             numeral = number1 % 10;
             number1 /= 10;

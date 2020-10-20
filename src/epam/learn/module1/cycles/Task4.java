@@ -9,8 +9,7 @@ public class Task4 {
         BigDecimal result = BigDecimal.ONE;
 
         for (int i = 1; i <= array.length; i++) {
-            array[i - 1] = i * i;
-            result = result.multiply(BigDecimal.valueOf(array[(i - 1)]));
+            result = result.multiply(BigDecimal.valueOf(i * i));
         }
         System.out.println(result);
     }

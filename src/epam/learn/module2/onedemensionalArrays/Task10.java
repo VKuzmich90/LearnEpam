@@ -15,10 +15,8 @@ public class Task10 {
             if (i % 2 == 0) {
                 array[i - 1] = 0;
             }
-            System.out.print(array[i - 1] + " ");
         }
 
-        System.out.println();
 
         for (int i = 1; i < (array.length + 1) / 2 ; i++) {
             array[i] = array[2 * i];

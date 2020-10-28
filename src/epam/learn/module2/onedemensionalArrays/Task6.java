@@ -26,7 +26,12 @@ public class Task6 {
         if (number < 2) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(number); i++) {
+        if (number % 2 == 0) {
+            return number == 2;
+        }
+
+        double root = Math.sqrt(number);
+        for (int i = 3; i <= root; i += +2) {
             if (number % i == 0) {
                 return false;
             }

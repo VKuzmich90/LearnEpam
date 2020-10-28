@@ -10,7 +10,7 @@ public class Task9 {
         int[] popular = new int[array.length];
 
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length; j++) {
+            for (int j = i; j < array.length; j++) {
                 if (array[i] == array[j]) {
                     popular[i]++;
                 }
@@ -20,7 +20,7 @@ public class Task9 {
         int result = array[0];
         int popularElement = popular[0];
 
-        for (int i = 0; i < popular.length; i++) {
+        for (int i = 1; i < popular.length; i++) {
             if (popular[i] > popularElement) {
                 popularElement = popular[i];
                 result = array[i];

@@ -18,7 +18,6 @@ public class Task6 {
                 sum += array[i];
             }
         }
-
         System.out.println(sum);
     }
 

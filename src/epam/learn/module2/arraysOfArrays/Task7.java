@@ -11,6 +11,7 @@ public class Task7 {
         int n = scanner.nextInt();
         double[][] array = new double[n][n];
         int counter = 0;
+
         if (n <= 0) {
             System.out.println("Введённое значение некорректно");
         } else {

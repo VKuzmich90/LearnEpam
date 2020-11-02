@@ -14,12 +14,14 @@ public class Task3 {
         int n = scanner.nextInt();
 
         int[][] array = new int[m][n];
-        System.out.println("Введите массив:");
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = scanner.nextInt();
+                array[i][j] = (int) (Math.random() * 10);
+                System.out.printf("%5d", array[i][j]);
             }
+            System.out.println();
         }
+
         System.out.print("Какую строку вывести? ");
         int k = scanner.nextInt();
         if (k < 0 || k > m) {
@@ -31,24 +33,21 @@ public class Task3 {
             System.out.print("Введённое значение некорректно");
         }
 
-        for (int i = 0; i < array.length; i++) {
-            if (i == k - 1) {
-                for (int j = 0; j < array[i].length; j++) {
-                    System.out.print(array[i][j] + " ");
-                }
-            }
-
-            for (int j = 0; j < array[i].length; j++) {
-                if (j == p - 1) {
-                    System.out.println();
-                    System.out.print(array[i][j]);
-                }
-            }
+        for (int j = 0; j < array[n].length; j++) {
+            System.out.print(array[k-1][j] + " ");
         }
+
+        System.out.println();
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i][p-1]);
+        }
+
     }
-
-
 }
+
+
+
 
 
 

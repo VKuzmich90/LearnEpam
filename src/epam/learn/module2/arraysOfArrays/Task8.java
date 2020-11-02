@@ -17,18 +17,21 @@ public class Task8 {
         int n = scanner.nextInt();
 
         int[][] array = new int[m][n];
-        System.out.println("Введите массив:");
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                array[i][j] = scanner.nextInt();
+                array[i][j] = (int) (Math.random() * 10);
+                System.out.printf("%5d", array[i][j]);
             }
+            System.out.println();
         }
 
+        System.out.println();
         System.out.print("Какие столбцы поменять местами? ");
         int column1 = scanner.nextInt();
         if (column1 < 0 || column1 > n) {
             System.out.println("Такого столбца нет");
         }
+
         int column2 = scanner.nextInt();
         if (column2 < 0 || column1 > n) {
             System.out.println("Такого столбца нет");
@@ -36,17 +39,14 @@ public class Task8 {
 
         int changeElement = 0;
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (j + 1 == column1) {
-                    changeElement = array[i][j];
-                    array[i][j] = array[i][column2 - 1];
-                    array[i][column2 - 1] = changeElement;
-                }
-            }
+            changeElement = array[i][column1 - 1];
+            array[i][column1 - 1] = array[i][column2 - 1];
+            array[i][column2 - 1] = changeElement;
+
         }
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                System.out.print(array[i][j] + " ");
+                System.out.printf("%5d", array[i][j]);
             }
             System.out.println();
         }

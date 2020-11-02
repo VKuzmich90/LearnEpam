@@ -27,32 +27,13 @@ public class Task12 {
             }
         }
         printArray(array);
-
-        int copy;
-        for (int i = 0; i < m; i++) {
-            for (int k = n - 1; k >= 1; k--) {
-                for (int j = 0; j < k; j++) {
-                    if (array[i][j] > array[i][j + 1]) {
-                        copy = array[i][j];
-                        array[i][j] = array[i][j + 1];
-                        array[i][j + 1] = copy;
-                    }
-                }
-            }
-        }
+        sortArray(array, true);
         printArray(array);
-
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n / 2; j++) {
-                copy = array[i][j];
-                array[i][j] = array[i][n - 1 - j];
-                array[i][n - 1 - j] = copy;
-            }
-        }
+        sortArray(array, false);
         printArray(array);
     }
 
-    public static void printArray(int[][] array){
+    private static void printArray(int[][] array) {
         System.out.println();
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
@@ -62,7 +43,26 @@ public class Task12 {
         }
     }
 
-
+    private static void sortArray(int[][] array, boolean up) {
+        int copy;
+        for (int i = 0; i < array.length; i++) {
+            for (int k = array[i].length - 1; k >= 1; k--) {
+                for (int j = 0; j < k; j++) {
+                    if (up == true) {
+                        if (array[i][j] > array[i][j + 1]) {
+                            copy = array[i][j];
+                            array[i][j] = array[i][j + 1];
+                            array[i][j + 1] = copy;
+                        }
+                    } else if (array[i][j] < array[i][j + 1]) {
+                        copy = array[i][j];
+                        array[i][j] = array[i][j + 1];
+                        array[i][j + 1] = copy;
+                    }
+                }
+            }
+        }
+    }
 }
 
 

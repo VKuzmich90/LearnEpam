@@ -1,5 +1,7 @@
 package epam.learn.module2.onedemensionalArrays;
 
+import java.util.Arrays;
+
 /* Даны действительные числа а1 ,а2 ,..., аn .
 Поменять местами наибольший и наименьший элементы.
  */
@@ -15,7 +17,7 @@ public class Task4 {
                 minIndex = i;
             }
 
-            if (array[maxIndex] < i) {
+            if (array[maxIndex] < array[i]) {
                 maxIndex = i;
             }
         }
@@ -24,8 +26,6 @@ public class Task4 {
         array[minIndex] = array[maxIndex];
         array[maxIndex] = changeElement;
 
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
+        System.out.println(Arrays.toString(array));
     }
 }

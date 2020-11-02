@@ -1,5 +1,7 @@
 package epam.learn.module2.onedemensionalArrays;
 
+import java.util.Arrays;
+
 /*Дан целочисленный массив с количеством элементов п.
 Сжать массив, выбросив из него каждый второй элемент (освободившиеся элементы заполнить нулями).
  */
@@ -22,9 +24,6 @@ public class Task10 {
             array[i] = array[2 * i];
             array[2 * i] = 0;
         }
-
-        for (int i = 0; i < array.length ; i++) {
-            System.out.print(array[i] + " ");
-        }
+        System.out.println(Arrays.toString(array));
     }
 }

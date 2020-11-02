@@ -27,37 +27,40 @@ public class Task13 {
             }
         }
         printArray(array);
-
-        int copy;
-        for (int j = 0; j < n; j++) {
-            for (int k = m - 1; k >= 1; k--) {
-                for (int i = 0; i < k; i++) {
-                    if (array[i][j] > array[i + 1][j]) {
-                        copy = array[i][j];
-                        array[i][j] = array[i + 1][j];
-                        array[i + 1][j] = copy;
-                    }
-                }
-            }
-        }
+        sortArray(array, n, true);
         printArray(array);
-        for (int j = 0; j < n; j++) {
-            for (int i = 0; i < m / 2; i++) {
-                copy = array[i][j];
-                array[i][j] = array[m - 1 - i][j];
-                array[m - 1 - i][j] = copy;
-            }
-        }
+        sortArray(array, n, false);
         printArray(array);
-
     }
-    public static void printArray(int[][] array){
+
+    private static void printArray(int[][] array) {
         System.out.println();
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 System.out.printf("%5d", array[i][j]);
             }
             System.out.println();
+        }
+    }
+
+    private static void sortArray(int[][] array, int n, boolean up) {
+        int copy;
+        for (int j = 0; j < n; j++) {
+            for (int k = array.length - 1; k >= 1; k--) {
+                for (int i = 0; i < k; i++) {
+                    if (up == true) {
+                        if (array[i][j] > array[i + 1][j]) {
+                            copy = array[i][j];
+                            array[i][j] = array[i + 1][j];
+                            array[i + 1][j] = copy;
+                        }
+                    } else if (array[i][j] < array[i + 1][j]) {
+                        copy = array[i][j];
+                        array[i][j] = array[i + 1][j];
+                        array[i + 1][j] = copy;
+                    }
+                }
+            }
         }
     }
 }

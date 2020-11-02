@@ -10,7 +10,7 @@ public class Task10 {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите размер стороны матрицы: ");
         int n = scanner.nextInt();
-        if (n < 0 ) {
+        if (n < 0) {
             System.out.println("Введено некорретное значение");
         }
 
@@ -18,16 +18,16 @@ public class Task10 {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 array[i][j] = (Math.random() * 100 - 50);
-                System.out.printf("%.2f" + "    ", array[i][j] );
+                System.out.printf(String.format("%.2f" + "  ", + array[i][j]));
             }
             System.out.println();
         }
+
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (i == j && array[i][j] > 0) {
-                    System.out.print("[" + i + "]" + "[" + j + "]: ");
-                    System.out.println(String.format("%.2f",  + array[i][j]));
-                }
+            if (array[i][i] > 0) {
+                System.out.print("[" + i + "]" + "[" + i + "]: ");
+                System.out.println(String.format("%.2f", + array[i][i]));
+
             }
         }
     }

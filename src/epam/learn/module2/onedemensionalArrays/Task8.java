@@ -14,8 +14,7 @@ public class Task8 {
             if (minElement > array1[i]) {
                 minElement = array1[i];
                 counter = 0;
-            }
-            if (array1[i] == minElement) {
+            } else if (array1[i] == minElement) {
                 counter++;
             }
         }
@@ -25,8 +24,7 @@ public class Task8 {
         for (int i = 0; i < array1.length; i++) {
             if (array1[i] != minElement) {
                 array2[indexArray2] = array1[i];
-                System.out.print(array2[indexArray2] + " ");
-                indexArray2++;
+                System.out.print(array2[indexArray2++] + " ");
             }
         }
     }

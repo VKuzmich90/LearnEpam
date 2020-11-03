@@ -13,7 +13,7 @@ public class Task8 {
         for (int i = 1; i < array1.length; i++) {
             if (minElement > array1[i]) {
                 minElement = array1[i];
-                counter = 0;
+                counter = 1;
             } else if (array1[i] == minElement) {
                 counter++;
             }

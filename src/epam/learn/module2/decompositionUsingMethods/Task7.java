@@ -10,10 +10,10 @@ public class Task7 {
         for (int i = 0; i < array.length; i++) {
             array[i] = i + 1;
         }
-        sum(array);
+        getSum(array);
     }
 
-    private static long sum(int[] array){
+    private static long getSum(int[] array){
         long sum = 0;
         long factorial = 1;
         for (int i = 0; i < array.length ; i += 2) {

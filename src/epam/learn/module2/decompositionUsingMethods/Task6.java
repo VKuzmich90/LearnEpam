@@ -13,10 +13,10 @@ public class Task6 {
     }
 
     private static boolean isPrimeNumbers(int number1, int number2, int number3) {
-        return ( nod(nod(number1, number2), nod(number2, number3)) == 1);
+        return ( getNod(getNod(number1, number2), getNod(number2, number3)) == 1);
     }
 
-    private static int nod(int number1, int number2) {
+    private static int getNod(int number1, int number2) {
         int copy;
         while (number1 != number2) {
             if (number1 > number2) {

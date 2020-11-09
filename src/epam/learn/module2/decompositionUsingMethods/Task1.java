@@ -26,6 +26,7 @@ public class Task1 {
 
     private static int nod(int number1, int number2) {
         int copy;
+
         while (number1 != number2) {
             if (number1 > number2) {
                 copy = number1;

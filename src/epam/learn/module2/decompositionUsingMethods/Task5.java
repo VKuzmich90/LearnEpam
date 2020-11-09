@@ -5,7 +5,10 @@ import java.util.Arrays;
 /* Составить программу, которая в массиве A[N] находит второе по величине число
 (вывести на печать число, которое меньше максимального элемента массива, но больше всех других элементов).
  */
+
+//Заменил переменную secondMaxIndex на secondNumber
 public class Task5 {
+
     public static void main(String[] args) {
         int[] array = new int[20];
 
@@ -14,24 +17,23 @@ public class Task5 {
         }
         System.out.println(Arrays.toString(array));
 
-        secondMax(array);
+        System.out.println(secondMax(array));
 
     }
     private static int secondMax(int[] array) {
         int maxIndex = 0;
-        int secondMaxIndex = 0;
+        int secondNumber = 0;
         for (int i = 1; i < array.length; i++) {
             if (array[maxIndex] < array[i]) {
-                secondMaxIndex = maxIndex;
+                secondNumber = array[maxIndex];
                 maxIndex = i;
             }
         }
         for (int i = maxIndex + 1; i < array.length; i++) {
-            if (array[secondMaxIndex] < array [i]) {
-                secondMaxIndex = i;
+            if (secondNumber < array [i]) {
+                secondNumber = array[i];
             }
         }
-        System.out.println(array[secondMaxIndex]);
-        return array[secondMaxIndex];
+        return secondNumber;
     }
 }

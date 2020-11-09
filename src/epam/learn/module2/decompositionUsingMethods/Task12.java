@@ -7,10 +7,11 @@ import java.util.ArrayList;
 Написать метод(методы) формирования массива А, элементами которого являются числа,
 сумма цифр которых равна К и которые не большее N.
  */
+// Увеличил шаг перебора
 public class Task12 {
 
     public static void main(String[] args) {
-        int k = 8;
+        int k = 13;
         int n = 195;
 
         getArray(k, n);
@@ -21,19 +22,24 @@ public class Task12 {
         int copy = 0;
 
         for (int i = 1; i < n; i++) {
-            copy = i;
-            int sum = 0;
-
-            while (copy > 0) {
-                sum += copy % 10;
-                copy /= 10;
-            }
-
-            if (sum == k) {
+            if (getSumOfNumerals(i) == k) {
                 System.out.print(i + " ");
-                list.add(sum);
+                i += 8;
+                list.add(getSumOfNumerals(i));
             }
         }
+
         return list;
+    }
+
+    private static int getSumOfNumerals(int i) {
+        int sum = 0;
+
+        while (i > 0) {
+            sum += i % 10;
+            i /= 10;
+        }
+
+        return sum;
     }
 }

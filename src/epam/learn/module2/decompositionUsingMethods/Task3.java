@@ -7,6 +7,7 @@ public class Task3 {
     public static void main(String[] args) {
         int a = 4;
         double square = squareTriangle(a) * 6;
+
         System.out.printf("Площадь правильного шестеугольника равна: %.3f", square);
     }
 

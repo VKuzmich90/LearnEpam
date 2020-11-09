@@ -15,8 +15,7 @@ public class Task13 {
     }
 
     private static void printTwins(int n) {
-        ArrayList<Integer> list = new ArrayList<>();
-        list.addAll(getArray(n));
+        ArrayList<Integer> list = getArray(n);
 
         for (int i = 1; i < list.size(); i++) {
             if (list.get(i) - list.get(i - 1) == 2) {

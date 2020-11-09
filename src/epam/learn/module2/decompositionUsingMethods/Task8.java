@@ -23,7 +23,7 @@ public class Task8 {
 
     private static int getSum3(int[] array, int k, int m) {
         int sum = 0;
-        if (k < m) {
+        if (k + 2 == m) {
             for (int i = k; i <= m; i++) {
                 sum += array[i];
             }

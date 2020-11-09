@@ -13,6 +13,7 @@ public class Task17 {
 
     private static int getCounter(int number) {
         int counter = 0;
+
         while (number > 0) {
             number -= getSum(number);
             counter++;

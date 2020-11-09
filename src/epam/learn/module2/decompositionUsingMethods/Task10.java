@@ -10,7 +10,7 @@ public class Task10 {
     public static void main(String[] args) {
         int n = 375912087;
 
-        getArray(n);
+        System.out.println(Arrays.toString(getArray(n)));
     }
 
     private static int[] getArray(int n) {
@@ -28,7 +28,6 @@ public class Task10 {
             array[i] = n % 10;
             n /= 10;
         }
-        System.out.println(Arrays.toString(array));
         return array;
     }
 }

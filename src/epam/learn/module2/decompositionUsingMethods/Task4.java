@@ -3,6 +3,7 @@ package epam.learn.module2.decompositionUsingMethods;
 /*На плоскости заданы своими координатами n точек. Написать метод(методы),
 определяющие, между какими из пар точек самое большое расстояние. Указание. Координаты точек занести в массив.
  */
+// Величины x1, y1, x2, y2 вынес отдельно
 public class Task4 {
 
     public static void main(String[] args) {
@@ -19,10 +20,16 @@ public class Task4 {
 
     private static double maxDistance(double[][] array) {
         double maxDistace = 0;
+
         for (int i = 1; i < array.length; i++) {
             for (int j = 1; j < array[i].length; j++) {
-                if (maxDistace < distance(array[i - 1][j - 1], array[i][j - 1], array[i - 1][j], array[i][j])) {
-                    maxDistace = distance(array[i - 1][j - 1], array[i][j - 1], array[i - 1][j], array[i][j]);
+                double x1 = array[i - 1][j - 1];
+                double y1 = array[i][j - 1];
+                double x2 = array[i - 1][j];
+                double y2 = array[i][j];
+
+                if (maxDistace < distance( x1, y1, x2 ,y2)) {
+                    maxDistace = distance( x1, y1, x2 ,y2);
                 }
             }
 

@@ -14,10 +14,12 @@ public class Task1 {
     private static String[] toSnakeCase(String[] camelCase) {
         String[] snakeCase = new String[camelCase.length];
 
-        for (int i = 0; i < snakeCase.length; i++) {
+        for (int i = 0; i < camelCase.length; i++) {
             StringBuilder stringBuilder = new StringBuilder();
+
             for (int j = 0; j < camelCase[i].length(); j++) {
                 char ch = camelCase[i].toCharArray()[j];
+
                 if (Character.isLowerCase(ch)) {
                     stringBuilder.append(ch);
                 } else {

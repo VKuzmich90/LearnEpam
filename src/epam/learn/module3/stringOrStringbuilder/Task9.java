@@ -7,18 +7,17 @@ package epam.learn.module3.stringOrStringbuilder;
 public class Task9 {
 
     public static void main(String[] args) {
-        String string = "London is the capital of Great Britan";
+        String text = "London is the capital of Great Britan";
 
-        System.out.println("Строчных букв:" + counterSmallCh(string));
-        System.out.println("Прописных букв:" + counterBigCh(string));
+        System.out.println(counterElement(text, 'A', 'Z'));
     }
 
-    private static int counterSmallCh(String string) {
+    private static int counterElement(String text, char a, char b) {
         int counter = 0;
 
-        for (int i = 0; i < string.length(); i++) {
-            char ch = string.charAt(i);
-            if (ch >= 'a' && ch <= 'z') {
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            if (ch >= a && ch <= b) {
                 counter++;
             }
         }
@@ -26,16 +25,5 @@ public class Task9 {
         return counter;
     }
 
-    private static int counterBigCh(String string) {
-        int counter = 0;
 
-        for (int i = 0; i < string.length(); i++) {
-            char ch = string.charAt(i);
-            if (ch >= 'A' && ch <= 'Z') {
-                counter++;
-            }
-        }
-
-        return counter;
-    }
 }

@@ -7,17 +7,18 @@ package epam.learn.module3.stringOrStringbuilder;
 public class Task6 {
 
     public static void main(String[] args) {
-        String string = "London is the capital of Great Britan";
+        String text = "London is the capital of Great Britan";
 
-        System.out.println(getNewString(string));
+        System.out.println(getNewString(text));
     }
 
-    private static String getNewString(String string) {
+    private static String getNewString(String text) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        for (int i = 0; i < string.length(); i++) {
-            stringBuilder.append(string.charAt(i));
-            stringBuilder.append(string.charAt(i));
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            stringBuilder.append(ch);
+            stringBuilder.append(ch);
         }
 
         return stringBuilder.toString();

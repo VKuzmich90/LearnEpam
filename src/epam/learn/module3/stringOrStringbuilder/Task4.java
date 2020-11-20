@@ -13,9 +13,11 @@ public class Task4 {
 
     private static String getNewWord(String string) {
         String newWord = String.valueOf(string.charAt(string.indexOf('т')));
-        newWord += String.valueOf(string.charAt(string.indexOf('о')));
-        newWord += String.valueOf(string.charAt(string.indexOf('р')));
-        newWord += String.valueOf(string.charAt(string.indexOf('т')));
+        newWord = newWord.concat(String.valueOf(string.charAt(string.indexOf('о'))));
+        newWord = newWord.concat(String.valueOf(string.charAt(string.indexOf('р'))));
+        newWord = newWord.concat(String.valueOf(string.charAt(string.indexOf('т'))));
+
+
 
         return newWord;
     }

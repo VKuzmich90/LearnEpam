@@ -35,9 +35,9 @@ public class Task8 {
                 isMultiplyMaxWord = true;
             }
 
-            if (isMultiplyMaxWord) {
-                throw new RuntimeException("More than one max word!");
-            }
+        }
+        if (isMultiplyMaxWord) {
+            throw new RuntimeException("More than one max word!");
         }
 
         return maxWord;

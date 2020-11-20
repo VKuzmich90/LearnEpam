@@ -15,10 +15,12 @@ public class Task2 {
         StringBuilder stringBuilder = new StringBuilder();
 
         for (int i = 0; i < string.length(); i++) {
-            if (string.charAt(i) == 'a') {
+            char ch = string.charAt(i);
+
+            if (ch == 'a') {
                 stringBuilder.append("ab");
             } else {
-                stringBuilder.append(string.charAt(i));
+                stringBuilder.append(ch);
             }
         }
 

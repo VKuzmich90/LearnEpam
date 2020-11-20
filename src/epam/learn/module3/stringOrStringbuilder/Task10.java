@@ -20,7 +20,7 @@ public class Task10 {
             char ch1 = string.charAt(i);
 
             for (char element : ch) {
-                if (element == ch1 && (i == string.length() - 1 || string.charAt(i + 1) == ' ')) {
+                if (element == ch1) {
                     counter++;
                 }
             }

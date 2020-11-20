@@ -6,23 +6,24 @@ package epam.learn.module3.stringOrStringbuilder;
 public class Task3 {
 
     public static void main(String[] args) {
-        String string = "Шалаш";
+        String text = "Шалаш";
 
-        System.out.println(isPalindrom(string));
+        System.out.println(isPalindrom(text));
     }
 
-    private static boolean isPalindrom(String string) {
-        boolean isPalindrom = true;
+    private static boolean isPalindrom(String text) {
+        text = text.toLowerCase();
+        char[] chars = text.toCharArray();
 
-        for (int i = 0; i < string.length() / 2; i++) {
-            String firstCh = String.valueOf(string.charAt(i));
-            String lastCh = String.valueOf(string.charAt(string.length() - 1 - i));
+        for (int i = 0; i < chars.length / 2; i++) {
+            char firstCh = text.charAt(i);
+            char lastCh = text.charAt(text.length() - 1 - i);
 
-            if (!firstCh.equalsIgnoreCase(lastCh)) {
-                isPalindrom = false;
+            if (firstCh != lastCh) {
+                return false;
             }
         }
 
-        return isPalindrom;
+        return true;
     }
 }

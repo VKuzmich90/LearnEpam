@@ -30,12 +30,12 @@ public class Main {
 
         fly.printDayOfWeek(flights, DayOfWeek.MONDAY);
 
-        fly.printDayofWeekAndTime(flights, DayOfWeek.WEDNESDAY, Airline.ft.parse("11:00"));
+        fly.printDayofWeekAndTime(flights, DayOfWeek.WEDNESDAY, Airline.ft.parse("15:00"));
 
     }
 
     public static AirlineBase getBase() throws ParseException {
-        AirlineBase flights = new AirlineBase("Minsk (MSQ)", new ArrayList<>());
+        AirlineBase flights = new AirlineBase("Minsk", new ArrayList<>());
 
         flights.addAirline("Berlin", "B2 891", "Embraer RJ-175",
                 Airline.ft.parse("11:00"), new DayOfWeek[]{DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY,

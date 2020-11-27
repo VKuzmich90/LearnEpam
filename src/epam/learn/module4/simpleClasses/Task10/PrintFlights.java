@@ -27,11 +27,11 @@ public class PrintFlights {
         }
     }
 
-    public void printDayofWeekAndTime(AirlineBase list, DayOfWeek dayOfWeeks, Date time) throws ParseException {
-        System.out.printf("\n Список вылетов в %d, после ", dayOfWeeks, time);
+    public void printDayofWeekAndTime(AirlineBase list, DayOfWeek dayOfWeek, Date time) throws ParseException {
+        System.out.println("Список вылетов в " + dayOfWeek + " после " + time);
 
 
-        ArrayList<Airline> airlinesOnDay = list.flightDays(DayOfWeek.MONDAY, time);
+        ArrayList<Airline> airlinesOnDay = list.flightDays(dayOfWeek, time);
 
         for (Airline airline : airlinesOnDay) {
             System.out.println(airline);

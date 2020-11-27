@@ -5,12 +5,17 @@ package epam.learn.module4.simpleClasses.Task3;
 Добавьте возможность вывода фамилий и номеров групп студентов, имеющих оценки, равные только 9 или 10.
  */
 
-import static epam.learn.module4.simpleClasses.Task3.Student.printGoodStudents;
-
 public class Main {
 
     public static void main(String[] args) {
 
+        PrintStudents printStudents = new PrintStudents();
+
+        printStudents.printGoodStudents(getArrayOfStudents());
+
+    }
+
+    public static Student[] getArrayOfStudents() {
         Student[] students = new Student[10];
 
         students[0] = new Student("Иванов А.И.", 101, new int[]{5, 6, 7, 8, 9});
@@ -24,7 +29,9 @@ public class Main {
         students[8] = new Student("Зыль К.О.", 102, new int[]{7, 8, 7, 10, 8});
         students[9] = new Student("Потрихалина Н.Ю.", 103, new int[]{9, 10, 10, 10, 9});
 
-        printGoodStudents(students);
+        return students;
     }
+
+
 }
 

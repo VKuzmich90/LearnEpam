@@ -6,40 +6,41 @@ package epam.learn.module4.simpleClasses.Task5;
 получить его текущее состояние. Написать код, демонстрирующий все возможности класса.
  */
 
+import java.io.IOException;
+
 public class RunCounter {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
 
         // Проверка первого счётчика
         Counter counter1 = new Counter();
-        System.out.println("Текущее значение счётчика 1: " + counter1.getCurrentValue());
+        System.out.println(counter1.toString());
 
         for (int i = 0; i < 5; i++) {
-            counter1.up();
-            System.out.println(counter1.getCurrentValue());
+            counter1.increment();
+            System.out.println(counter1.toString());
         }
 
-        System.out.println("Текущее значение счётчика 1: " + counter1.getCurrentValue());
+        System.out.println(counter1.toString());
         for (int i = 0; i < 10; i++) {
-            counter1.down();
-            System.out.println(counter1.getCurrentValue());
+            counter1.decrement();
+            System.out.println(counter1.toString());
         }
 
         // Проверка второго счётчика
         Counter counter2 = new Counter(1, 10, 3);
-        System.out.println("Текущее значение счётчика 2: " + counter2.getCurrentValue());
+        System.out.println(counter2.toString());
 
         for (int i = 0; i < 8; i++) {
-            counter2.up();
-            System.out.println(counter2.getCurrentValue());
+            counter2.increment();
+            System.out.println(counter2.toString());
         }
 
-        System.out.println("Текущее значение счётчика 2: " + counter2.getCurrentValue());
+        System.out.println(counter1.toString());
         for (int i = 0; i < 10; i++) {
-            counter2.down();
-            System.out.println(counter2.getCurrentValue());
+            counter2.decrement();
+            System.out.println(counter2.toString());
         }
-
-
     }
 }

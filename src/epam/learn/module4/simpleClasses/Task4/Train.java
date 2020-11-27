@@ -7,17 +7,49 @@ package epam.learn.module4.simpleClasses.Task4;
 должны быть упорядочены по времени отправления.
  */
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class Train {
-
-    String destination;
-    int number;
-    Date departureTime;
-
+    private String destination;
+    private int number;
+    private Date departureTime;
     public static SimpleDateFormat tf = new SimpleDateFormat("HH:mm");
+
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public Date getDepartureTime() {
+        return departureTime;
+    }
+
+    public void setDepartureTime(Date departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public SimpleDateFormat getTf() {
+        return tf;
+    }
+
+    public void setTf(SimpleDateFormat tf) {
+        Train.tf = tf;
+    }
+
 
     public Train(String destination, int number, Date departureTime) {
         this.destination = destination;
@@ -25,52 +57,29 @@ public class Train {
         this.departureTime = departureTime;
     }
 
-    public static void sortTrainNumber(Train[] trains) throws ParseException {
-        Train change;
 
-        for (int i = trains.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (trains[j].number > trains[j + 1].number) {
-                    change = trains[j];
-                    trains[j] = trains[j + 1];
-                    trains[j + 1] = change;
-
-                }
-            }
-        }
+    @Override
+    public String toString() {
+        return destination + " " + number + " " + tf.format(departureTime);
     }
 
+//    @Override
+//    public int compareTo(Train o) {
+//        int result = this.destination.compareTo(o.destination);
+//
+//        if (result == 0) {
+//            result = this.departureTime.compareTo(o.departureTime);
+//        }
+//
+//        return result;
+//    }
 
-    public static void sortDestination(Train[] trains) throws ParseException {
-        Train change;
 
-        for (int i = trains.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                int compare = trains[j].destination.compareTo(trains[j + 1].destination);
-
-                if (compare > 0) {
-                    change = trains[j];
-                    trains[j] = trains[j + 1];
-                    trains[j + 1] = change;
-
-                } else if (compare == 0) {
-                    if (trains[j].departureTime.compareTo(trains[j + 1].departureTime) > 0) {
-                        change = trains[j];
-                        trains[j] = trains[j + 1];
-                        trains[j + 1] = change;
-
-                    }
-                }
-            }
-        }
-    }
-
-    public static void printInformation(Train[] trains, int number) {
+    public static void printInformation(List<Train> trains, int number) {
         for (Train train: trains) {
             if (number == train.number) {
-                System.out.println(train.destination + " " + train.number + " " + tf.format(train.departureTime));
+                System.out.println(train.toString());
             }
-
         }
     }
 }

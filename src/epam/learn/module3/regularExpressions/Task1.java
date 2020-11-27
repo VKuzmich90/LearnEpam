@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class Task1 {
 
     public static void main(String[] args) throws IOException {
-        String text = "Один. Два весёлых чижа. Три банки апельсинов. Четыре чумазых чертёнка?\n" +
+        String text = "Один. Два весёлых чижа. Три банки - апельсинов. Четыре чумазых чертёнка?\n" +
                 "Семь... Это второе предложение.\n" +
                 "Пластмасовый мир победил! Макет оказался сильней.\n" +
                 "Что делать? Где жить? Когда умирать? Зачем я здесь? Почему он не уходит? \n" +
@@ -176,7 +176,7 @@ public class Task1 {
     }
 
     private static String[] splitWords(String sentence) {
-        Pattern pattern = Pattern.compile("\\s*(\\s|,|;|:)\\s*");
+        Pattern pattern = Pattern.compile("\\s*(\\s|,|;|:|-)\\s*");
         return pattern.split(sentence);
     }
 }

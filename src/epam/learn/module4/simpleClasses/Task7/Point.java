@@ -6,11 +6,8 @@ package epam.learn.module4.simpleClasses.Task7;
 public class Point {
 
     private double x;
-    private double y;
 
-    public void printCordinate() {
-        System.out.println("(" + getX() + ", " + getY() + ")");
-    }
+    private double y;
 
     Point(double x, double y) {
         this.x = x;
@@ -23,5 +20,19 @@ public class Point {
 
     public double getY() {
         return y;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+
+    @Override
+    public String toString() {
+        return "(" + getX() + ", " + getY() + ")";
     }
 }

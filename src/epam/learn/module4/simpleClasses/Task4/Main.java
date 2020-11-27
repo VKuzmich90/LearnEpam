@@ -8,31 +8,41 @@ package epam.learn.module4.simpleClasses.Task4;
  */
 
 import java.text.ParseException;
-import static epam.learn.module4.simpleClasses.Task4.Train.*;
+import java.util.*;
+
+import static epam.learn.module4.simpleClasses.Task4.Train.printInformation;
+import static epam.learn.module4.simpleClasses.Task4.Train.tf;
 
 public class Main {
 
     public static void main(String[] args) throws ParseException {
 
-        Train[] trains = new Train[5];
-        trains[0] = new Train("Минск", 570, tf.parse("11:12"));
-        trains[1] = new Train("Витебск", 563, tf.parse("12:43"));
-        trains[2] = new Train("Брест", 310, tf.parse("02:17"));
-        trains[3] = new Train("Гомель", 112, tf.parse("15:49"));
-        trains[4] = new Train("Брест", 711, tf.parse("09:23"));
+        List<Train> trains = getArrayOfTrains();
 
+        //сортировка по номерам
+        trains.sort(Comparator.comparing(Train::getNumber));
+        System.out.println(trains.toString());
 
+        // сортировка по пункту назначения, а затем по времени отправления
+        trains.sort(Comparator.comparing(Train::getDestination).thenComparing(Train::getDepartureTime));
+        System.out.println(trains.toString());
+
+        //Вывод информации о поезде по номеру
         printInformation(trains, 112);
 
-        sortTrainNumber(trains);
-        for (Train train : trains) {
-            System.out.println(train.number);
-        }
+    }
 
-        sortDestination(trains);
-        for (Train train : trains) {
-            System.out.println(train.destination + " " + train.number + " " + tf.format(train.departureTime));
-        }
+    public static List<Train> getArrayOfTrains() throws ParseException {
+        List<Train> trains = new ArrayList<>();
+
+        trains.add(new Train("Минск", 570, tf.parse("11:12")));
+        trains.add(new Train("Витебск", 563, tf.parse("12:43")));
+        trains.add(new Train("Брест", 310, tf.parse("02:17")));
+        trains.add(new Train("Гомель", 112, tf.parse("15:49")));
+        trains.add(new Train("Брест", 711, tf.parse("09:23")));
+
+        return trains;
     }
 }
+
 

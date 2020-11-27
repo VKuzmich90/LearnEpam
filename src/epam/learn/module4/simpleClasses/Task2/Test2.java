@@ -4,7 +4,9 @@ package epam.learn.module4.simpleClasses.Task2;
 инициализирующий члены класса по умолчанию. Добавьте set- и get- методы для полей экземпляра класса.
  */
 public class Test2 {
+
     private int a;
+
     private int b;
 
     public Test2(int a, int b) {
@@ -12,9 +14,8 @@ public class Test2 {
         this.b = b;
     }
 
-    Test2() {
-        this.a = 2;
-        this.b = 3;
+    public Test2() {
+        this(2, 3);
     }
 
     public int getA() {

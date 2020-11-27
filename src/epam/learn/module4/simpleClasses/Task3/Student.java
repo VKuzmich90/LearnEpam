@@ -5,6 +5,8 @@ package epam.learn.module4.simpleClasses.Task3;
 Добавьте возможность вывода фамилий и номеров групп студентов, имеющих оценки, равные только 9 или 10.
  */
 
+import epam.learn.module4.simpleClasses.Task4.Train;
+
 public class Student {
 
     private String name;
@@ -19,20 +21,33 @@ public class Student {
         this.marks = marks;
     }
 
-    public static void printGoodStudents(Student[] students) {
-
-        for (Student student : students) {
-            int minMark = 10;
-
-            for (int mark : student.marks) {
-                if (minMark > mark) {
-                    minMark = mark;
-                }
-            }
-
-            if (minMark >= 9) {
-                System.out.printf("Отличник: %s, группа %d %n", student.name, student.group);
-            }
-        }
+    public String getName() {
+        return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getGroup() {
+        return group;
+    }
+
+    public void setGroup(int group) {
+        this.group = group;
+    }
+
+    public int[] getMarks() {
+        return marks;
+    }
+
+    public void setMarks(int[] marks) {
+        this.marks = marks;
+    }
+
+    @Override
+    public String toString() {
+        return getName() + ", " + getGroup();
+    }
+
 }

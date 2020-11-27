@@ -7,57 +7,46 @@ import java.util.Locale;
  */
 public class Triangle {
 
-    private Side sideA;
-    private Side sideB;
-    private Side sideC;
+    private Point a;
+    private Point b;
+    private Point c;
 
-    private Triangle(Side a, Side b, Side c) {
-        sideA = a;
-        sideB = b;
-        sideC = c;
+    public Triangle() {
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
 
-    private static Triangle createTriangle(Point a, Point b, Point c) {
-        Side sideA = new Side(a, b);
-        Side sideB = new Side(b, c);
-        Side sideC = new Side(a, c);
-        return new Triangle(sideA, sideB, sideC);
+    //длина стороны треугольника
+    public double getLengthOfSide(Point a, Point b) {
+        return Math.sqrt(Math.pow((a.getX() - b.getX()), 2) + Math.pow((a.getY() - b.getY()), 2));
     }
 
-    private double getPerimeter(){
-        return sideA.getLengthOfSide() + sideB.getLengthOfSide() + sideC.getLengthOfSide();
+
+    //периметр треугольника
+    public double getPerimeter(Point a, Point b, Point c) {
+        return getLengthOfSide(a, b) + getLengthOfSide(b, c) + getLengthOfSide(c, a);
     }
 
-    private double getSquare() {
-        double p = getPerimeter() / 2;
-        return Math.sqrt(p * (p - sideA.getLengthOfSide()) * (p - sideB.getLengthOfSide()) * (p - sideC.getLengthOfSide()));
+
+    //площадь треугольника
+    public double getSquare(Point a, Point b, Point c) {
+        double p = getPerimeter(a, b, c) / 2; //считаем полупериметр
+
+        // находим площадь по формуле Герона
+        return Math.sqrt(p * (p - getLengthOfSide(a, b)) * (p - getLengthOfSide(b, c)) * (p - getLengthOfSide(c, a)));
     }
 
-    private Point mediansPoint() {
-        double x = (sideA.getA().getX() + sideA.getB().getX() + sideB.getB().getX()) / 3;
-        double y = (sideA.getA().getY() + sideA.getB().getY() + sideB.getB().getY()) / 3;
+
+    //точка пересечения медиан
+    public Point centerOfMedians(Point a, Point b, Point c) {
+        double x = (a.getX() + b.getX() + c.getX()) / 3;
+        double y = (a.getY() + b.getY() + c.getY()) / 3;
+
         return new Point(x, y);
     }
 
-    public static void main(String[] args) {
-        Point a = new Point(-1,-5);
-        Point b = new Point(4,9);
-        Point c = new Point(6,2);
 
-        a.printCordinate();
-        b.printCordinate();
-        c.printCordinate();
-
-        Triangle triangle = createTriangle(a, b, c);
-
-        System.out.printf("Периметр: %.3f", triangle.getPerimeter());
-        System.out.printf("\nПлощадь %.3f", triangle.getSquare());
-
-        Point point = triangle.mediansPoint();
-        System.out.printf("\nТочка пересечения медиан: ");
-        point.printCordinate();
-
-    }
 }
 
 

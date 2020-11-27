@@ -7,6 +7,7 @@ package epam.learn.module4.simpleClasses.Task1;
 public class Test1 {
 
     private int a = 7;
+
     private int b = 3;
 
     public void print() {

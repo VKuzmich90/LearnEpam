@@ -1,6 +1,7 @@
 package epam.learn.module4.simpleClasses.Task10;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.Date;
@@ -24,9 +25,12 @@ public class Main {
 
         PrintFlights fly = new PrintFlights();
 
+
         fly.printDestination(flights, "Moscow");
 
-        fly.printDayOfWeek(flights, DayOfWeek.WEDNESDAY);
+        fly.printDayOfWeek(flights, DayOfWeek.MONDAY);
+
+        fly.printDayofWeekAndTime(flights, DayOfWeek.WEDNESDAY, Airline.ft.parse("11:00"));
 
     }
 

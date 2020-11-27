@@ -17,20 +17,20 @@ public class PrintFlights {
         }
     }
 
-    public void printDayOfWeek(AirlineBase list, DayOfWeek[] dates) {
-        System.out.println("Список вылетов в определённый день");
+    public void printDayOfWeek(AirlineBase list, DayOfWeek dayOfWeek) {
+        System.out.println("Список вылетов в " + dayOfWeek);
 
-        ArrayList<Airline> airlinesOnDay = list.flightDays(dates[]);
+        ArrayList<Airline> airlinesOnDay = list.flightDays(dayOfWeek);
 
         for (Airline airline : airlinesOnDay) {
             System.out.println(airline);
         }
     }
 
-    public void printDayofWeekAndTime(AirlineBase list, DayOfWeek[] dayOfWeeks, Date time) throws ParseException {
+    public void printDayofWeekAndTime(AirlineBase list, DayOfWeek dayOfWeeks, Date time) throws ParseException {
         System.out.printf("\n Список вылетов в %d, после ", dayOfWeeks, time);
 
-        //  Date time = Airline.ft.parse("13:00");
+
         ArrayList<Airline> airlinesOnDay = list.flightDays(DayOfWeek.MONDAY, time);
 
         for (Airline airline : airlinesOnDay) {

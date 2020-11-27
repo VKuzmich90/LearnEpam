@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.time.DayOfWeek;
 import java.util.ArrayList;
 import java.util.Date;
+import static epam.learn.module4.simpleClasses.Task10.Airline.ft;
 
 public class PrintFlights {
 
@@ -28,7 +29,7 @@ public class PrintFlights {
     }
 
     public void printDayofWeekAndTime(AirlineBase list, DayOfWeek dayOfWeek, Date time) throws ParseException {
-        System.out.println("Список вылетов в " + dayOfWeek + " после " + time);
+        System.out.println("Список вылетов в " + dayOfWeek + " после " + ft.format(time));
 
 
         ArrayList<Airline> airlinesOnDay = list.flightDays(dayOfWeek, time);

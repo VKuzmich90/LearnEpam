@@ -90,11 +90,13 @@ public class Task2 {
         List<String> result = new ArrayList<>();
         int start = 0;
         int index = s.indexOf("><", start);
+
         while (index != -1) {
             result.add(s.substring(start, index + 1));
             start = index + 1;
             index = s.indexOf("><", start);
         }
+
         result.add(s.substring(start));
         return result;
     }

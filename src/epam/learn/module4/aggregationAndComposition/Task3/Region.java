@@ -1,6 +1,6 @@
 package epam.learn.module4.aggregationAndComposition.Task3;
 
-/* Создать объект класса Государство, используя классы Область, Район, Город.
+/** Создать объект класса Государство, используя классы Область, Район, Город.
 Методы: вывести на консоль столицу, количество областей, площадь, областные центры.
  */
 
@@ -12,15 +12,38 @@ public class Region {
 
     private City regionCenter;
 
-    private double area;
-
     private ArrayList<District> districts;
 
-    public Region(String name, City regionCenter, double area) {
+    private double area;
+
+    public Region(String name, City regionCenter) {
         this.name = name;
         this.regionCenter = regionCenter;
-        this.area = area;
         this.districts = new ArrayList<>();
+    }
+
+    void addDistrict (District district) {
+        districts.add(district);
+    }
+
+    void removeDistrict (String districtName) {
+        for (District district : districts) {
+            if (districtName.equals(district.getName())) {
+                districts.remove(district);
+            }
+        }
+    }
+
+
+
+
+    public double getArea() {
+        double area = 0;
+
+        for (District district: this.districts) {
+            area += district.getArea();
+        }
+        return area;
     }
 
     public String getName() {
@@ -40,21 +63,12 @@ public class Region {
         return population;
     }
 
-
     public City getRegionCenter() {
         return regionCenter;
     }
 
     public void setRegionCenter(City regionCenter) {
         this.regionCenter = regionCenter;
-    }
-
-    public double getArea() {
-        return area;
-    }
-
-    public void setArea(double area) {
-        this.area = area;
     }
 
     public ArrayList<District> getDistricts() {

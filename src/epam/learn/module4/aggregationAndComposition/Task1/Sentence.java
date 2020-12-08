@@ -4,17 +4,25 @@ package epam.learn.module4.aggregationAndComposition.Task1;
 вывести на консоль текст, заголовок текста.
  */
 
+import java.util.ArrayList;
+
 public class Sentence {
 
     private String sentence;
 
-    Sentence(String sentence) {
+    private ArrayList<Word> words;
+
+    public Sentence(Word word) {
+        this.words = new ArrayList<>();
+        this.words.add(word);
+    }
+
+    public Sentence(String sentence) {
         this.sentence = sentence;
     }
 
-    @Override
-    public String toString() {
-        return sentence;
+    public void addWord(Word word) {
+        this.words.add(word);
     }
 
     public String getSentence() {
@@ -23,5 +31,10 @@ public class Sentence {
 
     public void setSentence(String sentence) {
         this.sentence = sentence;
+    }
+
+    @Override
+    public String toString() {
+        return sentence;
     }
 }

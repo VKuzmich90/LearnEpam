@@ -11,6 +11,7 @@ a) список книг заданного автора;
 b) список книг, выпущенных заданным издательством;
 c) список книг, выпущенных после заданного года.
 */
+
 import java.util.ArrayList;
 
 public class BookShop {
@@ -19,13 +20,12 @@ public class BookShop {
 
     private ArrayList<Book> bookList;
 
-    BookShop(String shopName, ArrayList<Book> bookList) {
-        this.bookShopName = shopName;
+    public BookShop(ArrayList<Book> bookList) {
         this.bookList = bookList;
     }
 
     public void addBook(int id, String name, String author, String publisher, int yearOfPublishing,
-                 int numberOfPages, int price, String bindingType) {
+                        int numberOfPages, int price, String bindingType) {
 
         this.bookList.add(new Book(id, name, author, publisher, yearOfPublishing, numberOfPages,
                 price, bindingType));

@@ -10,7 +10,6 @@ a) список покупателей в алфавитном порядке;
 b) список покупателей, у которых номер кредитной карточки находится в заданном интервале
 */
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -23,14 +22,15 @@ public class CustomerBase {
         this.base = base;
     }
 
-    public void sortName() {
+    public ArrayList<Customer> sortByName() {
         base.sort(Comparator.comparing(Customer::getLastName));
+        return base;
     }
 
-    public ArrayList<Customer> sortCustomersCard( long minNumber, long maxNumber) {
+    public ArrayList<Customer> sortCustomersByCard( long minNumber, long maxNumber) {
         ArrayList<Customer> list = new ArrayList<>();
 
-        for (Customer customer : this.base) {
+        for (Customer customer : base) {
 
             if (customer.getCardNumber() > minNumber
                     && customer.getCardNumber() < maxNumber) {
@@ -42,14 +42,11 @@ public class CustomerBase {
     }
 
     public void addCustomer(int id, String lastName, String firstName, String patronymic, String address, long cardNumber, long bankAccountNumber) {
-        this.base.add(new Customer(id, lastName, firstName, patronymic, address, cardNumber, bankAccountNumber));
+        base.add(new Customer(id, lastName, firstName, patronymic, address, cardNumber, bankAccountNumber));
     }
 
     ArrayList<Customer> getBase() {
         return base;
     }
 
-    public void setBase(ArrayList<Customer> base) {
-        this.base = base;
-    }
 }

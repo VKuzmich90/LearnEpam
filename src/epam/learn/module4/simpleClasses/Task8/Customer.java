@@ -11,8 +11,6 @@ a) список покупателей в алфавитном порядке;
 b) список покупателей, у которых номер кредитной карточки находится в заданном интервале
 */
 
-import java.math.BigInteger;
-
 public class Customer {
 
 
@@ -38,12 +36,6 @@ public class Customer {
         this.address = address;
         this.cardNumber = cardNumber;
         this.bankAccountNumber = bankAccountNumber;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("%d, %s, %s, %s, %s, %s, %d", id, lastName, firstName, patronymic,
-                address, cardNumber, bankAccountNumber);
     }
 
     public int getId() {
@@ -100,6 +92,12 @@ public class Customer {
 
     public void setBankAccountNumber(long bankAccountNumber) {
         this.bankAccountNumber = bankAccountNumber;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d, %s, %s, %s, %s, %s, %d", id, lastName, firstName, patronymic,
+                address, cardNumber, bankAccountNumber);
     }
 
 }

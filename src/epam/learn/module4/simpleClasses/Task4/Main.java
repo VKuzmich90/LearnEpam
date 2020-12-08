@@ -10,8 +10,8 @@ package epam.learn.module4.simpleClasses.Task4;
 import java.text.ParseException;
 import java.util.*;
 
-import static epam.learn.module4.simpleClasses.Task4.Train.printInformation;
 import static epam.learn.module4.simpleClasses.Task4.Train.tf;
+import static epam.learn.module4.simpleClasses.Task4.TrainUtil.printInformation;
 
 public class Main {
 

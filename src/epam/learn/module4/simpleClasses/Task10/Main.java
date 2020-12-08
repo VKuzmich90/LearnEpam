@@ -1,10 +1,10 @@
 package epam.learn.module4.simpleClasses.Task10;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.util.ArrayList;
-import java.util.Date;
+
+import static epam.learn.module4.simpleClasses.Task10.PrintFlights.*;
 
 /*Создать класс Airline, спецификация которого приведена ниже. Определить конструкторы, set- и get- методы
 и метод  toString(). Создать второй класс, агрегирующий массив типа Airline, с подходящими конструкторами
@@ -23,19 +23,16 @@ public class Main {
 
         AirlineBase flights = getBase();
 
-        PrintFlights fly = new PrintFlights();
+        printDestination(flights, "Moscow");
 
+        printDayOfWeek(flights, DayOfWeek.MONDAY);
 
-        fly.printDestination(flights, "Moscow");
-
-        fly.printDayOfWeek(flights, DayOfWeek.MONDAY);
-
-        fly.printDayofWeekAndTime(flights, DayOfWeek.WEDNESDAY, Airline.ft.parse("15:00"));
+        printDayofWeekAndTime(flights, DayOfWeek.WEDNESDAY, Airline.ft.parse("15:00"));
 
     }
 
     public static AirlineBase getBase() throws ParseException {
-        AirlineBase flights = new AirlineBase("Minsk", new ArrayList<>());
+        AirlineBase flights = new AirlineBase(new ArrayList<>());
 
         flights.addAirline("Berlin", "B2 891", "Embraer RJ-175",
                 Airline.ft.parse("11:00"), new DayOfWeek[]{DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY,

@@ -1,6 +1,6 @@
 package epam.learn.module4.aggregationAndComposition.Task3;
 
-/* Создать объект класса Государство, используя классы Область, Район, Город.
+/** Создать объект класса Государство, используя классы Область, Район, Город.
 Методы: вывести на консоль столицу, количество областей, площадь, областные центры.
  */
 public class District {
@@ -19,6 +19,7 @@ public class District {
         this.area = area;
         this.districtCenter = districtCenter;
     }
+
 
     public String getName() {
         return name;

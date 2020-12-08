@@ -1,7 +1,5 @@
 package epam.learn.module2.decompositionUsingMethods;
 
-import java.util.Scanner;
-
 /*Написать метод(методы) для нахождения наибольшего общего делителя четырех натуральных чисел.
  */
 public class Task2 {

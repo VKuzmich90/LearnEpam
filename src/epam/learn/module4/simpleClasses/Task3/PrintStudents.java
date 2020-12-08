@@ -1,14 +1,11 @@
 package epam.learn.module4.simpleClasses.Task3;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class PrintStudents {
+public final class PrintStudents {
 
-    ArrayList<Student> list = new ArrayList<Student>();
-
-    public ArrayList<Student> printGoodStudents(Student[] students) {
-
+    public static ArrayList<Student> printGoodStudents(Student[] students) {
+        ArrayList<Student> list = new ArrayList<Student>();
 
         for (Student student : students) {
             int minMark = 10;

@@ -21,8 +21,7 @@ public class AirlineBase {
 
     private ArrayList<Airline> airlines;
 
-    public AirlineBase(String airportName, ArrayList<Airline> airline) {
-        this.airportName = airportName;
+    public AirlineBase(ArrayList<Airline> airline) {
         this.airlines = airline;
     }
 
@@ -64,7 +63,7 @@ public class AirlineBase {
     }
 
     // список рейсов для заданного дня недели, время вылета для которых больше заданного
-    ArrayList<Airline> flightDays (DayOfWeek dayOfWeek, Date departureTime) {
+    ArrayList<Airline> flightDaysAfterTime (DayOfWeek dayOfWeek, Date departureTime) {
 
         ArrayList<Airline> airlines = new ArrayList<>();
 

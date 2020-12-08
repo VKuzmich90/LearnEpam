@@ -1,20 +1,26 @@
 package epam.learn.module4.aggregationAndComposition.Task1;
 
-/*Создать объект класса Текст, используя классы Предложение, Слово. Методы: дополнить текст,
-вывести на консоль текст, заголовок текста.
+/**
+ * Создать объект класса Текст, используя классы Предложение, Слово. Методы: дополнить текст,
+ * вывести на консоль текст, заголовок текста.
  */
 public class Main {
 
     public static void main(String[] args) {
 
-
         Word heading = new Word("Новости");
+
+        Word word1 = new Word("Всем ");
+        Word word2 = new Word("привет! ");
+
+        Sentence sentence0 = new Sentence(word1);
+
+        sentence0.addWord(word2);
 
         String line1 = "Светлана Тихановская заявила о встрече с Джо Байденом," +
                 " 46-м избранным президентом США. Со стороны Белого дома анонсов пока не было.\n";
 
-        Sentence sentence = new Sentence(line1);
-        Text news = new Text(heading, sentence);
+        Sentence sentence1 = new Sentence(line1);
 
         String line2 = "Штаб Светланы Тихановской подал первое заявление на расследование преступления" +
                 " силовиков. Оно связано с  насилием над предпринимателем Максимом Хорошиным." +
@@ -26,10 +32,15 @@ public class Main {
                 " время марша в Куропаты, он все ещё не вышел. Ян — студент-четверокурсник БГУИР и" +
                 " экс-сотрудник научно-технического центра КГБ (уволиться ему предложили в день задержания\n";
 
+        Text news = new Text(heading, sentence0);
+
+        news.addSentence(new Sentence(line1));
         news.addSentence(new Sentence(line2));
         news.addSentence(new Sentence(line3));
 
         news.printHeading();
         news.printText();
+
+
     }
 }

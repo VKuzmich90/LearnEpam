@@ -11,27 +11,26 @@ b) список покупателей, у которых номер креди�
 */
 
 
-import java.math.BigInteger;
 import java.util.ArrayList;
+
+import static epam.learn.module4.simpleClasses.Task8.PrintPeople.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        CustomerBase person = getBase();
-
-        PrintPeople print = new PrintPeople();
+        CustomerBase people = getBase();
 
         //Печатаем базу по алфавиту
-        print.printName(person);
+        printByName(people);
 
         // Печатаем базу в заданном интервале номеров кредитных карт
-        print.printCustomersCard(person, 200000000, 400000000);
+        printCustomersByCard(people, 200000000, 400000000);
 
     }
 
     public static CustomerBase getBase() {
-        CustomerBase persons = new CustomerBase(new ArrayList<>());
+        CustomerBase persons = new CustomerBase(new ArrayList<>() );
 
         persons.addCustomer(012, "Иванов", "Иван", "Иванович",
                 "Минск", 111111111, 12345678);

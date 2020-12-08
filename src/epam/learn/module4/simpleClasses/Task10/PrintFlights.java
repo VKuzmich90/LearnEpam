@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import static epam.learn.module4.simpleClasses.Task10.Airline.ft;
 
-public class PrintFlights {
+public final class PrintFlights {
 
-    public void printDestination(AirlineBase list, String destination) {
+    public static void printDestination(AirlineBase list, String destination) {
         System.out.println("Список вылетов в " + destination);
 
         ArrayList<Airline> airlinesToBrussels = list.airlinesToDestination(destination);
@@ -18,7 +18,7 @@ public class PrintFlights {
         }
     }
 
-    public void printDayOfWeek(AirlineBase list, DayOfWeek dayOfWeek) {
+    public static void printDayOfWeek(AirlineBase list, DayOfWeek dayOfWeek) {
         System.out.println("Список вылетов в " + dayOfWeek);
 
         ArrayList<Airline> airlinesOnDay = list.flightDays(dayOfWeek);
@@ -28,11 +28,11 @@ public class PrintFlights {
         }
     }
 
-    public void printDayofWeekAndTime(AirlineBase list, DayOfWeek dayOfWeek, Date time) throws ParseException {
+    public static void printDayofWeekAndTime(AirlineBase list, DayOfWeek dayOfWeek, Date time) throws ParseException {
         System.out.println("Список вылетов в " + dayOfWeek + " после " + ft.format(time));
 
 
-        ArrayList<Airline> airlinesOnDay = list.flightDays(dayOfWeek, time);
+        ArrayList<Airline> airlinesOnDay = list.flightDaysAfterTime(dayOfWeek, time);
 
         for (Airline airline : airlinesOnDay) {
             System.out.println(airline);

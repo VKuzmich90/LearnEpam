@@ -5,9 +5,9 @@ package epam.learn.module4.simpleClasses.Task6;
 времени на заданное количество часов, минут и секунд.
  */
 
-public class WorkWithTime {
+public final class WorkWithTime {
 
-    public Time changeHour(Time time, int hour) {
+    public static Time changeHour(Time time, int hour) {
         int result;
 
         result = (time.getHour() + hour) % 24;
@@ -18,7 +18,7 @@ public class WorkWithTime {
         return time;
     }
 
-    public Time changeMinute(Time time, int minute) {
+    public static Time changeMinute(Time time, int minute) {
         int result;
 
         if (time.getMinute() + minute >= 0) {                 // Возможно нужно будет перевести часы вперёд
@@ -33,7 +33,7 @@ public class WorkWithTime {
         return time;
     }
 
-    public Time changeSeconds(Time time, int second) {
+    public static Time changeSeconds(Time time, int second) {
         int result;
 
         if (time.getSecond() + second >= 0) {                 // Возможно нужно будет перевести минуты вперёд

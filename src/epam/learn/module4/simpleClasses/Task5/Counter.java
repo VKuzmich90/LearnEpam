@@ -7,7 +7,7 @@ import java.io.IOException;
 и произвольными значениями. Счетчик имеет методы увеличения и уменьшения состояния, и метод позволяющее
 получить его текущее состояние. Написать код, демонстрирующий все возможности класса.
  */
-public class Counter{
+public class Counter {
 
     private int minValue;
     private int maxValue;
@@ -25,33 +25,27 @@ public class Counter{
     }
 
     public void increment() throws IOException {
-        boolean islimitvalue = false;
+        boolean isLimitValue = false;
         currentValue++;
 
-        if (currentValue == maxValue) {
-            System.out.println("Достигнуто максимальное значение");
-        } else if (currentValue > maxValue) {
-            islimitvalue = true;
+        if (currentValue > maxValue) {
+            isLimitValue = true;
         }
 
-        if (islimitvalue) {
+        if (isLimitValue) {
             throw new RuntimeException("going beyond the counter");
         }
     }
 
     public void decrement() throws IOException {
-        boolean islimitvalue = false;
+        boolean isLimitValue = false;
         currentValue--;
 
-
-        if (currentValue == minValue) {
-            System.out.println("Достигнуто минимальное значение");
-        } else if (currentValue < minValue) {
-            islimitvalue = true;
-            currentValue++;
+        if (currentValue < minValue) {
+            isLimitValue = true;
         }
 
-        if (islimitvalue) {
+        if (isLimitValue) {
             throw new RuntimeException("going beyond the counter");
         }
     }

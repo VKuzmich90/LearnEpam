@@ -5,8 +5,6 @@ package epam.learn.module4.simpleClasses.Task3;
 Добавьте возможность вывода фамилий и номеров групп студентов, имеющих оценки, равные только 9 или 10.
  */
 
-import epam.learn.module4.simpleClasses.Task4.Train;
-
 public class Student {
 
     private String name;
@@ -47,7 +45,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return getName() + ", " + getGroup();
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", group=" + group +
+                '}';
     }
-
 }

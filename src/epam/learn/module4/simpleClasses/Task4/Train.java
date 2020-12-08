@@ -9,7 +9,6 @@ package epam.learn.module4.simpleClasses.Task4;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 public class Train {
     private String destination;
@@ -60,26 +59,11 @@ public class Train {
 
     @Override
     public String toString() {
-        return destination + " " + number + " " + tf.format(departureTime);
+        return "Train{" +
+                "destination='" + destination + '\'' +
+                ", number=" + number +
+                ", departureTime=" + tf.format(departureTime) +
+                '}';
     }
 
-//    @Override
-//    public int compareTo(Train o) {
-//        int result = this.destination.compareTo(o.destination);
-//
-//        if (result == 0) {
-//            result = this.departureTime.compareTo(o.departureTime);
-//        }
-//
-//        return result;
-//    }
-
-
-    public static void printInformation(List<Train> trains, int number) {
-        for (Train train: trains) {
-            if (number == train.number) {
-                System.out.println(train.toString());
-            }
-        }
-    }
 }

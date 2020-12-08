@@ -37,8 +37,7 @@ public class Task2 {
                 "        <heading>Напоминание</heading>\n" +
                 "        <body>Позвони мне завтра!</body>\n" +
                 "    </note><note id = \"2\">\n" +
-                "        <to>Петя</to>\n" +
-                "        <from>Маша</from>\n" +
+                "        <to>Петя</to> <from>Маша</from>\n" +
                 "        <heading>Важное напоминание</heading>\n" +
                 "        <body/>\n" +
                 "    </note>\n" +

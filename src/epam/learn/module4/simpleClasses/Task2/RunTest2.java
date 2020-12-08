@@ -27,7 +27,4 @@ public class RunTest2 {
         System.out.println("Second b: " + second.getB());
     }
 
-    private void printValues() {
-
-    }
 }

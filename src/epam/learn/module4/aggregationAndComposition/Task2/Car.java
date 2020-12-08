@@ -18,9 +18,8 @@ public class Car {
 
     public Car(String modelName) {
         this.modelName = modelName;
-        this.engine = engine;
         this.wheels = new ArrayList<>(4);
-        this.isFuel = isFuel;
+        this.isFuel = false;
     }
 
 
@@ -68,8 +67,7 @@ public class Car {
             if (!wheels.get(i).isGoodWheel()) {
 
                 System.out.printf("Колесо %d заменено.\n", i + 1);
-                int wheelDiameter = this.getWheels().get(i).getDiameter();
-                this.getWheels().set(i, new Wheel(wheelDiameter, true));
+                this.getWheels().set(i, new Wheel(true));
             }
         }
     }
@@ -93,17 +91,19 @@ public class Car {
             isEngine = true;
         }
 
-        if (isEngine && wheelCounter == 4) {
+        if (!isFuel) {
+            System.out.println("Закончилось топливо. Заправьте автомобиль.");
+        }
+
+        if (isFuel && isEngine && wheelCounter == 4) {
             boolean ready = true;
             for (int i = 0; i < 4; i++) {
-                if (!wheels.get(i).isGoodWheel()) {
+                if (!wheels.get(i).isGoodWheel()) { //Проверяем все ли колёса исправны
                     System.out.printf("Колесо %d не исправно. Замените колесо.%n", i + 1);
                     ready = false;
                 }
             }
-            if (!isFuel) {
-                System.out.println("Закончилось топливо. Заправьте автомобиль.");
-            } else if (ready) {
+            if (ready) {
                 System.out.println("Машина готова ехать");
             }
         }

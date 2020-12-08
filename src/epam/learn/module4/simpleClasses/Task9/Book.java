@@ -41,12 +41,6 @@ public class Book {
         this.bindingType = bindingType;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%03d \"%s\", %s, %s, %d год, %d с., $%d,  %s.",
-                id, name, author, publisher, yearOfPublishing, numberOfPages,
-                price, bindingType);
-    }
 
     public int getId() {
         return id;
@@ -110,6 +104,13 @@ public class Book {
 
     public void setBindingType(String bindingType) {
         this.bindingType = bindingType;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%03d \"%s\", %s, %s, %d год, %d с., $%d,  %s.",
+                id, name, author, publisher, yearOfPublishing, numberOfPages,
+                price, bindingType);
     }
 
 }

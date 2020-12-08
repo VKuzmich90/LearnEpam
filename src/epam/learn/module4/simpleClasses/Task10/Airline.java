@@ -40,18 +40,6 @@ public class Airline {
         this.dayOfWeek = dayOfWeek;
     }
 
-    @Override
-    public String toString() {
-
-        StringBuilder strBuilder = new StringBuilder();
-
-        for (DayOfWeek day : dayOfWeek) {
-            strBuilder.append(day);
-            strBuilder.append(", ");
-        }
-        return String.format("Пункт назначения: %s, #%s, тип: %s, вылет в: %s, день недели: %s\b\b.",
-                destination, flightNumber, planeType, ft.format(departureTime), strBuilder.toString());
-    }
 
     public String getDestination() {
         return destination;
@@ -91,6 +79,19 @@ public class Airline {
 
     public void setDayOfWeek(DayOfWeek[] dayOfWeek) {
         this.dayOfWeek = dayOfWeek;
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder strBuilder = new StringBuilder();
+
+        for (DayOfWeek day : dayOfWeek) {
+            strBuilder.append(day);
+            strBuilder.append(", ");
+        }
+        return String.format("Пункт назначения: %s, #%s, тип: %s, вылет в: %s, день недели: %s\b\b.",
+                destination, flightNumber, planeType, ft.format(departureTime), strBuilder.toString());
     }
 
 }

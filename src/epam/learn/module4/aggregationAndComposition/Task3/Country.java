@@ -1,11 +1,10 @@
 package epam.learn.module4.aggregationAndComposition.Task3;
 
-/* Создать объект класса Государство, используя классы Область, Район, Город.
+/** Создать объект класса Государство, используя классы Область, Район, Город.
 Методы: вывести на консоль столицу, количество областей, площадь, областные центры.
  */
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Country {
 

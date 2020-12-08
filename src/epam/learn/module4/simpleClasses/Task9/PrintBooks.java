@@ -2,9 +2,9 @@ package epam.learn.module4.simpleClasses.Task9;
 
 import java.util.ArrayList;
 
-public class PrintBooks {
+public final class PrintBooks {
 
-    public void printAuthor(BookShop list, String author) {
+    public static void printByAuthor(BookShop list, String author) {
         System.out.println("Книги " + author);
 
         ArrayList<Book> authors = list.authorsBooks(author);
@@ -14,7 +14,7 @@ public class PrintBooks {
         }
     }
 
-    public void printPublisher(BookShop list, String publisher) {
+    public static void printByPublisher(BookShop list, String publisher) {
         System.out.println("Книги, изданные " + publisher);
 
         ArrayList<Book> publishersBook = list.publishersBook(publisher);
@@ -24,7 +24,7 @@ public class PrintBooks {
         }
     }
 
-    public void printAfterYear(BookShop list, int year) {
+    public static void printAfterYear(BookShop list, int year) {
         System.out.println("Книги, изданные после " + year);
 
         ArrayList<Book> releasedAfter = list.releasedAfter(year);

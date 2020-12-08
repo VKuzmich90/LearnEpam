@@ -12,28 +12,27 @@ b) список книг, выпущенных заданным издатель
 c) список книг, выпущенных после заданного года.
 */
 
-import java.sql.ClientInfoStatus;
 import java.util.ArrayList;
+
+import static epam.learn.module4.simpleClasses.Task9.PrintBooks.*;
+
 
 public class Main {
 
     public static void main(String[] args) {
 
-        PrintBooks printBook = new PrintBooks();
-
         BookShop list = getBase();
 
-        printBook.printAuthor(list, "Оруэлл");
+        printByAuthor(list, "Оруэлл");
 
-        printBook.printPublisher(list, "ЛитРес");
+        printByPublisher(list, "ЛитРес");
 
-        printBook.printAfterYear(list, 1940);
-
+        printAfterYear(list, 1940);
 
     }
 
     public static BookShop getBase() {
-        BookShop list = new BookShop("Книжная Шафа", new ArrayList<>());
+        BookShop list = new BookShop(new ArrayList<>());
 
         list.addBook(101, "1984", "Оруэлл", "Росмэн",
                 1948, 354, 23, "твёрдый");

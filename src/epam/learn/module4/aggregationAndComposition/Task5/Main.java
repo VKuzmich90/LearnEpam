@@ -17,7 +17,7 @@ public class Main {
                 Transport.SHIP, TypeOfFood.BREAKFAST, 12, 1100));
 
         tezTour.addTourPackage(new TourPackage("Испания", "Мадрид", TourPackageType.EXCURSION,
-                Transport.BUS, TypeOfFood.NOT_INCLUDET, 7, 500));
+                Transport.BUS, TypeOfFood.NOT_INCLUDED, 7, 500));
 
         tezTour.addTourPackage(new TourPackage("Испания", "Барселона", TourPackageType.TREATMENT,
                 Transport.BUS, TypeOfFood.ALL_INCLUSIVE, 7, 600));

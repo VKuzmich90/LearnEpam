@@ -6,7 +6,7 @@ package epam.learn.module4.aggregationAndComposition.Task5;
 
 public enum TypeOfFood {
 
-    NOT_INCLUDET,
+    NOT_INCLUDED,
     BREAKFAST,
     ALL_INCLUSIVE;
 

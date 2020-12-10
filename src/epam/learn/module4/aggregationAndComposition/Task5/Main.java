@@ -7,6 +7,7 @@ import static epam.learn.module4.aggregationAndComposition.Task5.TourAgency.prin
 import static epam.learn.module4.aggregationAndComposition.Task5.TourPackageType.EXCURSION;
 import static epam.learn.module4.aggregationAndComposition.Task5.Transport.PLANE;
 import static epam.learn.module4.aggregationAndComposition.Task5.TypeOfFood.BREAKFAST;
+import static epam.learn.module4.aggregationAndComposition.Task5.TypeOfFood.NOT_INCLUDED;
 
 /**
  * Туристические путевки. Сформировать набор предложений клиенту по выбору туристической путевки
@@ -51,6 +52,10 @@ public class Main {
         tours2 = tezTour.searchToursByFood(tours2, BREAKFAST);
         tours2 = tezTour.searchToursByDays(tours2, 5, 10);
         printTours(tours2);
+
+        System.out.println("\nФильтрация по питанию: завтраки или без питания");
+        List<TourPackage> tours3 = tezTour.searchToursByFood(tezTour.getTourPackages(), BREAKFAST, NOT_INCLUDED);
+        printTours(tours3);
 
     }
 }

@@ -47,6 +47,18 @@ public class TourAgency {
        return tours.stream().filter(o -> o.getFood().equals(food)).collect(Collectors.toList());
     }
 
+    public List<TourPackage> searchToursByFood(List<TourPackage> tours, TypeOfFood food1, TypeOfFood food2) {
+        return tours.stream().filter(o -> o.getFood().equals(food1) || o.getFood().equals(food2)).collect(Collectors.toList());
+    }
+
+    public List<TourPackage> searchToursByTransport(List<TourPackage> tours, Transport transport1, Transport transport2) {
+        return tours.stream().filter(o -> o.getTransport().equals(transport1) || o.getTransport().equals(transport2)).collect(Collectors.toList());
+    }
+
+
+    public List<TourPackage> searchToursByType(List<TourPackage> tours, TourPackageType type1, TourPackageType type2) {
+        return tours.stream().filter(o -> o.getType().equals(type1) || o.getType().equals(type2)).collect(Collectors.toList());
+    }
 
     public static void printTours(List<TourPackage> tours) {
 

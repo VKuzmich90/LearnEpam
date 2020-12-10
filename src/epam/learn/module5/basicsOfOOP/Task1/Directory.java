@@ -1,44 +1,49 @@
 package epam.learn.module5.basicsOfOOP.Task1;
-/**Создать объект класса Текстовый файл, используя классы Файл, Директория.
- Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить.
+/**
+ * Создать объект класса Текстовый файл, используя классы Файл, Директория.
+ * Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить.
  */
 
 import java.util.ArrayList;
 
 public class Directory {
 
-    private String directoryName;
+    private String name;
 
-    private ArrayList<TextFile> files;
+    private ArrayList<File> files = new ArrayList<>();
 
-    public Directory(String directoryName) {
-        this.directoryName = directoryName;
-        files = new ArrayList<>();
+    public Directory(String name) {
+        this.name = name;
     }
 
-    public String getDirectoryName() {
-        return directoryName;
+    public String getName() {
+        return name;
     }
 
-    public void changeDirectoryName(String directoryName) {
-        this.directoryName = directoryName;
+    public void changeDirectoryName(String name) {
+        this.name = name;
     }
 
-    public ArrayList<TextFile> getFiles() {
+    public ArrayList<File> getFiles() {
         return files;
     }
 
-    public void addFile(TextFile file) {
+    public void addFile(File file) {
         this.files.add(file);
     }
 
-    public void removeFile(String fileName) {
+    public void removeFile(String name) {
 
         for (int i = 0; i < files.size(); i++) {
 
-            if(files.get(i).getFileName().equalsIgnoreCase(fileName)) {
+            if (files.get(i).getName().equalsIgnoreCase(name)) {
                 files.remove(i);
             }
         }
     }
-}
+
+    public void printContent(){
+        System.out.println(name + ":");
+        files.stream().forEach(System.out::println);
+    }
+ }

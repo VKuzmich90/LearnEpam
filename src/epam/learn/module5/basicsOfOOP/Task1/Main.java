@@ -1,49 +1,32 @@
 package epam.learn.module5.basicsOfOOP.Task1;
 
+/**
+ * Создать объект класса Текстовый файл, используя классы Файл, Директория.
+ * Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить.
+ */
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Directory directory = new Directory("Книги");
+        Directory package1 = new Directory("Package_1");
+        TextFile textFile1 = new TextFile(package1, "textFile1.txt");
 
-        String fileName = "Скотный двор";
+        String line1 = "Мистер Джонс, хозяин Господского Двора, запер на ночь курятник.";
+        textFile1.addText(line1);
+        textFile1.printText();
 
-        TextFile tFile = new TextFile(directory, fileName);
+        File textFile2 = new TextFile("textFile0.txt");
+        package1.addFile(textFile2);
 
-        String line1 = "Мистер Джонс, хозяин Господского Двора, запер на ночь курятник, но про лазы для молодняка спьяну забыл.";
+        textFile2.setName("textFile2.txt");
 
-        tFile.addText(line1);
+        File textFile3 = new TextFile(package1, "textFile3.txt");
 
-        System.out.println("Создали текстовый файл: \"" + tFile.getFileName() + "\"");
+        package1.removeFile("textFile1.txt");
 
-        tFile.changeName("Скотный двор Оруэлл");
-        System.out.println("Поменяли название текстового файла на: \"" + tFile.getFileName() + "\"");
+        package1.printContent();
 
-        System.out.println("\nПечатаем содержимое файла");
-        tFile.printContent();
-
-        System.out.println("\nДополняем файл и печатаем содержимое");
-        String line2 = "Фонарь в его руке ходил ходуном, круг света метался из стороны в сторону, когда он, выписывая " +
-                "вензеля, прошел к черному ходу, скинул сапоги, нацедил в кладовке свою последнюю в этот день кружку пива из бочки и залез в кровать, где уже задавала храпака миссис Джонс.";
-        tFile.addText(line2);
-        tFile.printContent();
-
-        System.out.println("\nВыводим содержимое директории");
-        for (File file : directory.getFiles()) {
-            System.out.println(file);
-        }
-
-        System.out.println("\nСоздаём новый текстовый файл");
-        File tFile2 = new TextFile(directory, "1984");
-        for (TextFile file : directory.getFiles()) {
-            System.out.println(file);
-        }
-
-        System.out.println("\nУдаляем один текстовый файл и выводим содержимое директории");
-        directory.removeFile("Скотный двор Оруэлл");
-        for (TextFile file : directory.getFiles()) {
-            System.out.println(file);
-        }
     }
 }
 

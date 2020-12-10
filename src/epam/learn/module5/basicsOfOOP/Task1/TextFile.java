@@ -5,24 +5,24 @@ package epam.learn.module5.basicsOfOOP.Task1;
 
 public class TextFile extends File {
 
-    private Text content;
+    private String text;
 
-    public TextFile(Directory directory, String fileName) {
-        super(directory, fileName);
-        content = new Text("");
+    public TextFile(Directory directory, String name) {
+        super(directory, name);
+        text = "";
         super.getDirectory().addFile(this);
     }
 
+    public TextFile(String name) {
+        super(name);
+    }
+
     public void addText(String line) {
-        content.addText(line);
+        text += line;
     }
 
-    public void printContent() {
-        System.out.println(content.getText());
+    public void printText() {
+        System.out.println(text);
     }
 
-    @Override
-    public void changeName(String fileName) {
-        this.setFileName(fileName);
-    }
 }

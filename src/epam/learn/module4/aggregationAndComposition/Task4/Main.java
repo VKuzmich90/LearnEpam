@@ -29,7 +29,7 @@ public class Main {
 
         //Блокируем счёт
         System.out.println(belarusBank.getClient("MC1112233").getAccount(1).getStatus());
-        belarusBank.getClient("MC1112233").blockAccaunt(1);
+        belarusBank.getClient("MC1112233").lockAccount(1);
         System.out.println(belarusBank.getClient("MC1112233").getAccount(1).getStatus() + "\n");
 
         //Сортируем счёта по балансу

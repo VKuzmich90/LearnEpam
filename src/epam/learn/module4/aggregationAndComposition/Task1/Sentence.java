@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 public class Sentence {
 
-    private String sentence;
-
     private ArrayList<Word> words;
 
     public Sentence(Word word) {
@@ -17,24 +15,21 @@ public class Sentence {
         this.words.add(word);
     }
 
-    public Sentence(String sentence) {
-        this.sentence = sentence;
-    }
 
     public void addWord(Word word) {
         this.words.add(word);
     }
 
-    public String getSentence() {
-        return sentence;
+    public ArrayList<Word> getWords() {
+        return words;
     }
 
-    public void setSentence(String sentence) {
-        this.sentence = sentence;
+    public void setWords(ArrayList<Word> words) {
+        this.words = words;
     }
 
     @Override
     public String toString() {
-        return sentence;
+        return "" + words;
     }
 }

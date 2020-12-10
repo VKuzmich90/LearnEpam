@@ -84,7 +84,7 @@ public class Client {
         accounts.add(account);
     }
 
-    public void blockAccaunt (long id) {
+    public void lockAccount (long id) {
 
         for (Account account : accounts) {
 
@@ -94,7 +94,7 @@ public class Client {
         }
     }
 
-    public void unlockAccaunt (long id) {
+    public void unlockAccount (long id) {
 
         for (Account account : accounts) {
 

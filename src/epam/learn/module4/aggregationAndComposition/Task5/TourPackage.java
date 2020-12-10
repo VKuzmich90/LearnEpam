@@ -9,8 +9,6 @@ public class TourPackage {
 
     private String country;
 
-    private String city;
-
     private TourPackageType type;
 
     private Transport transport;
@@ -21,9 +19,8 @@ public class TourPackage {
 
     private double price;
 
-    public TourPackage(String country, String city, TourPackageType type, Transport transport, TypeOfFood food, int numberOfDays, double price) {
+    public TourPackage(String country, TourPackageType type, Transport transport, TypeOfFood food, int numberOfDays, double price) {
         this.country = country;
-        this.city = city;
         this.type = type;
         this.transport = transport;
         this.food = food;
@@ -39,36 +36,16 @@ public class TourPackage {
         this.country = country;
     }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public TourPackageType getType() {
         return type;
-    }
-
-    public void setType(TourPackageType type) {
-        this.type = type;
     }
 
     public Transport getTransport() {
         return transport;
     }
 
-    public void setTransport(Transport transport) {
-        this.transport = transport;
-    }
-
     public TypeOfFood getFood() {
         return food;
-    }
-
-    public void setFood(TypeOfFood food) {
-        this.food = food;
     }
 
     public int getNumberOfDays() {

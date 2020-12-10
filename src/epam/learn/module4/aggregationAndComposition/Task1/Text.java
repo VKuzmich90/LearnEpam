@@ -9,12 +9,11 @@ public class Text {
 
     private Word heading;
 
-    private ArrayList<Sentence> content;
+    private final ArrayList<Sentence> content = new ArrayList<>();
 
 
     public Text(Word heading, Sentence sentence){
         this.heading = heading;
-        this.content = new ArrayList<>();
         this.content.add(sentence);
     }
 

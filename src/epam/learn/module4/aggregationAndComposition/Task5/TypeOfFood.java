@@ -10,4 +10,9 @@ public enum TypeOfFood {
     BREAKFAST,
     ALL_INCLUSIVE;
 
+    @Override
+    public String toString() {
+        return super.toString().toLowerCase();
+    }
+
 }

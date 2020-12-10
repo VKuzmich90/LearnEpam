@@ -1,63 +1,56 @@
 package epam.learn.module4.aggregationAndComposition.Task5;
-/**Туристические путевки. Сформировать набор предложений клиенту по выбору туристической путевки
- различного типа (отдых, экскурсии, лечение, шопинг, круиз и т. д.) для оптимального выбора.
- Учитывать возможность выбора транспорта, питания и числа дней. Реализовать выбор и сортировку путевок.
- */
 
-import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+import static epam.learn.module4.aggregationAndComposition.Task5.TourAgency.printTours;
+import static epam.learn.module4.aggregationAndComposition.Task5.TourPackageType.EXCURSION;
+import static epam.learn.module4.aggregationAndComposition.Task5.Transport.PLANE;
+import static epam.learn.module4.aggregationAndComposition.Task5.TypeOfFood.BREAKFAST;
+
+/**
+ * Туристические путевки. Сформировать набор предложений клиенту по выбору туристической путевки
+ * различного типа (отдых, экскурсии, лечение, шопинг, круиз и т. д.) для оптимального выбора.
+ * Учитывать возможность выбора транспорта, питания и числа дней. Реализовать выбор и сортировку путевок.
+ */
 
 public class Main {
 
     public static void main(String[] args) {
 
-        TourAggregator tezTour = new TourAggregator("TEZ TOUR");
+        TourAgency tezTour = new TourAgency("TEZ TOUR");
 
+        tezTour.addTourPackage(new TourPackage("Испания", TourPackageType.CRUISE,
+                Transport.SHIP, BREAKFAST, 12, 1100));
 
-        tezTour.addTourPackage(new TourPackage("Испания", "Барселона", TourPackageType.CRUISE,
-                Transport.SHIP, TypeOfFood.BREAKFAST, 12, 1100));
-
-        tezTour.addTourPackage(new TourPackage("Испания", "Мадрид", TourPackageType.EXCURSION,
+        tezTour.addTourPackage(new TourPackage("Испания", EXCURSION,
                 Transport.BUS, TypeOfFood.NOT_INCLUDED, 7, 500));
 
-        tezTour.addTourPackage(new TourPackage("Испания", "Барселона", TourPackageType.TREATMENT,
+        tezTour.addTourPackage(new TourPackage("Испания", TourPackageType.TREATMENT,
                 Transport.BUS, TypeOfFood.ALL_INCLUSIVE, 7, 600));
 
-        tezTour.addTourPackage(new TourPackage("Италия", "Рим", TourPackageType.EXCURSION,
-                Transport.PLANE, TypeOfFood.ALL_INCLUSIVE, 10, 930));
+        tezTour.addTourPackage(new TourPackage("Италия", EXCURSION,
+                PLANE, TypeOfFood.ALL_INCLUSIVE, 10, 930));
 
-        tezTour.addTourPackage(new TourPackage("Италия", "Вениция", TourPackageType.CRUISE,
-                Transport.SHIP, TypeOfFood.BREAKFAST, 15, 1300));
+        tezTour.addTourPackage(new TourPackage("Италия", TourPackageType.CRUISE,
+                Transport.SHIP, BREAKFAST, 15, 1300));
 
-        tezTour.addTourPackage(new TourPackage("Италия", "Милан", TourPackageType.SHOPPING,
-                Transport.PLANE, TypeOfFood.BREAKFAST, 5, 400));
+        tezTour.addTourPackage(new TourPackage("Италия", TourPackageType.SHOPPING,
+                PLANE, BREAKFAST, 5, 400));
 
-        tezTour.addTourPackage(new TourPackage("Италия", "Флоренция", TourPackageType.RECREATION,
+        tezTour.addTourPackage(new TourPackage("Италия", TourPackageType.RECREATION,
                 Transport.TRAIN, TypeOfFood.ALL_INCLUSIVE, 13, 1250));
 
+        System.out.println("Фильтрация по типу экскурсии и стране:");
+        List<TourPackage> tours1 = tezTour.searchToursByType(tezTour.getTourPackages(), EXCURSION);
+        tours1 = tezTour.searchToursByCountry(tours1, "Италия");
+        printTours(tours1);
 
-        System.out.println("Экскурсии:");
-        ArrayList<TourPackage> selectByType = tezTour.selectByTourPackageType(TourPackageType.EXCURSION);
-        TourAggregator.printTours(selectByType);
-
-        System.out.println("\nТранспорт - корабль:");
-        ArrayList<TourPackage> selectByOption = tezTour.selectByMoreOption(Transport.SHIP);
-        TourAggregator.sortByNumberOfDays(selectByOption);
-        TourAggregator.printTours(selectByOption);
-
-        System.out.println("\nТранспорт - самолёт, питание - завтраки:");
-        selectByOption = tezTour.selectByMoreOption(Transport.PLANE, TypeOfFood.BREAKFAST);
-        TourAggregator.sortByPrice(selectByOption);
-        TourAggregator.printTours(selectByOption);
-
-        System.out.println("\nТранспорт - автобус, всё включено, 7 дней:");
-        selectByOption = tezTour.selectByMoreOption(Transport.BUS, TypeOfFood.ALL_INCLUSIVE, 7);
-        TourAggregator.sortByPrice(selectByOption);
-        TourAggregator.printTours(selectByOption);
-
-        System.out.println("\nНа 5 дней:");
-        selectByOption = tezTour.selectByMoreOption(5);
-        TourAggregator.sortByPrice(selectByOption);
-        TourAggregator.printTours(selectByOption);
+        System.out.println("\nФильтрация по транспорту, питанию, количеству дней:");
+        List<TourPackage> tours2 = tezTour.searchToursByTransport(tezTour.getTourPackages(), PLANE);
+        tours2 = tezTour.searchToursByFood(tours2, BREAKFAST);
+        tours2 = tezTour.searchToursByDays(tours2, 5, 10);
+        printTours(tours2);
 
     }
 }

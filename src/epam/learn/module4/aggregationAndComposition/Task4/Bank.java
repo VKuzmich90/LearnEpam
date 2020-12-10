@@ -41,6 +41,6 @@ public class Bank {
 
     @Override
     public String toString() {
-        return String.format("Bank %s has %d customers", name, clients.size());
+        return String.format("В %s %d клиентов", name, clients.size());
     }
 }

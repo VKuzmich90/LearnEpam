@@ -12,4 +12,8 @@ public enum Transport {
     SHIP,
     CAR;
 
+    @Override
+    public String toString() {
+        return super.toString().toLowerCase();
+    }
 }

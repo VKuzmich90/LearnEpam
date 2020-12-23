@@ -17,10 +17,10 @@ public class Main {
         belarusBank.addNewClient(ivanov);
         belarusBank.addNewClient(petrov);
 
-        ivanov.openAccount(new Account(107.34, 01));
-        ivanov.openAccount(new Account(199.04, 02));
-        ivanov.openAccount(new Account(-123.34, 03));
-        ivanov.openAccount(new Account(234.13, 04));
+        ivanov.openAccount(new Account(107.34, 1));
+        ivanov.openAccount(new Account(199.04, 2));
+        ivanov.openAccount(new Account(-123.34, 3));
+        ivanov.openAccount(new Account(234.13, 4));
 
         petrov.openAccount(new Account(151.80, 11));
         petrov.openAccount(new Account(-99.99, 12));
@@ -29,7 +29,7 @@ public class Main {
 
         //Блокируем счёт
         System.out.println(belarusBank.getClient("MC1112233").getAccount(1).getStatus());
-        belarusBank.getClient("MC1112233").lockAccount(1);
+        belarusBank.getClient("MC1112233").getAccount(1).lock();
         System.out.println(belarusBank.getClient("MC1112233").getAccount(1).getStatus() + "\n");
 
         //Сортируем счёта по балансу

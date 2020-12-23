@@ -38,7 +38,7 @@ public class Account {
         return String.format("Счёт %d %s.", id, status);
     }
 
-    public void block(){
+    public void lock(){
         isOpen = false;
     }
 

@@ -2,8 +2,9 @@ package epam.learn.module5.basicsOfOOP.Task3;
 
 import java.time.LocalDate;
 
-/**Создать класс Календарь с внутренним классом, с помощью объектов которого можно хранить
- информацию о выходных и праздничных днях.
+/**
+ * Создать класс Календарь с внутренним классом, с помощью объектов которого можно хранить
+ * информацию о праздничных днях.
  */
 
 
@@ -13,19 +14,26 @@ public class Main {
 
         Calendar calendar = new Calendar();
 
-        calendar.addHolyday("holyday1", LocalDate.parse("2020-01-01"));
-        calendar.addHolyday("holyday2", LocalDate.parse("2020-01-02"));
-        calendar.addHolyday("holyday3", LocalDate.parse("2020-01-07"));
-        calendar.addHolyday("holyday4", LocalDate.parse("2020-03-08"));
-        calendar.addHolyday("holyday5", LocalDate.parse("2020-05-01"));
-        calendar.addHolyday("holyday6", LocalDate.parse("2020-05-09"));
-        calendar.addHolyday("holyday7", LocalDate.parse("2020-05-11"));
-        calendar.addHolyday("holyday8", LocalDate.parse("2020-07-03"));
-        calendar.addHolyday("holyday9", LocalDate.parse("2020-11-07"));
-        calendar.addHolyday("holyday10", LocalDate.parse("2020-12-25"));
+        calendar.addHoliday("1 января", LocalDate.parse("2020-01-01"));
+        calendar.addHoliday("2 января", LocalDate.parse("2020-01-02"));
+        calendar.addHoliday("Рождество православное", LocalDate.parse("2020-01-07"));
+        calendar.addHoliday("8 марта", LocalDate.parse("2020-03-08"));
+        calendar.addHoliday("1 мая", LocalDate.parse("2020-05-01"));
+        calendar.addHoliday("9 мая", LocalDate.parse("2020-05-09"));
+        calendar.addHoliday("Радуница", LocalDate.parse("2020-05-11"));
+        calendar.addHoliday("День независимости", LocalDate.parse("2020-07-03"));
+        calendar.addHoliday("7 ноября", LocalDate.parse("2020-11-07"));
+        calendar.addHoliday("Рождество католическое", LocalDate.parse("2020-12-25"));
 
+        calendar.printHolidaysInRange(LocalDate.parse("2020-03-01"), LocalDate.parse("2020-12-01"));
+        calendar.deleteHoliday("7 ноября");
+        calendar.printHolidaysInRange(LocalDate.parse("2020-03-01"), LocalDate.parse("2020-12-01"));
 
-        calendar.printHolydaysInRange(LocalDate.parse("2020-03-01"), LocalDate.parse("2020-12-01"));
+        calendar.sortByName();
+        calendar.printAllHolidays();
+
+        calendar.sortByDate();
+        calendar.printAllHolidays();
 
 
     }

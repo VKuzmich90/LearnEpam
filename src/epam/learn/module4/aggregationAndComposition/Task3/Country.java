@@ -5,6 +5,7 @@ package epam.learn.module4.aggregationAndComposition.Task3;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Country {
 
@@ -12,12 +13,11 @@ public class Country {
 
     private City capital;
 
-    private ArrayList<Region> regions;
+    private List<Region> regions = new ArrayList<>();
 
     public Country(String name, City capital) {
         this.name = name;
         this.capital = capital;
-        this.regions = new ArrayList<>();
     }
 
     public void printCapital(){
@@ -88,7 +88,7 @@ public class Country {
         this.capital = capital;
     }
 
-    public ArrayList<Region> getRegions() {
+    public List<Region> getRegions() {
         return regions;
     }
 

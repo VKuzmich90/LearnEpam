@@ -2,6 +2,7 @@ package epam.learn.module4.aggregationAndComposition.Task4;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 /**Счета. Клиент может иметь несколько счетов в банке. Учитывать возможность блокировки/разблокировки счета.
  Реализовать поиск и сортировку счетов. Вычисление общей суммы по счетам. Вычисление суммы по всем счетам,
@@ -16,13 +17,12 @@ public class Client {
 
     private String passportID;
 
-    private ArrayList<Account> accounts;
+    private List<Account> accounts = new ArrayList<>();
 
     public Client(String firstName, String lastName, String passportID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.passportID = passportID;
-        accounts = new ArrayList<>();
     }
 
     public String getBalance() {
@@ -80,28 +80,8 @@ public class Client {
         return null;
     }
 
-    void openAccount (Account account) {
+    public void openAccount (Account account) {
         accounts.add(account);
-    }
-
-    public void lockAccount (long id) {
-
-        for (Account account : accounts) {
-
-            if(account.getId() == id) {
-                account.block();
-            }
-        }
-    }
-
-    public void unlockAccount (long id) {
-
-        for (Account account : accounts) {
-
-            if(account.getId() == id) {
-                account.unlock();
-            }
-        }
     }
 
     public String getInformation () {

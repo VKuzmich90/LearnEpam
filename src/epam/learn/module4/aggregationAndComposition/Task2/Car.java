@@ -5,6 +5,7 @@ package epam.learn.module4.aggregationAndComposition.Task2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Car {
 
@@ -12,13 +13,12 @@ public class Car {
 
     private Engine engine;
 
-    private ArrayList<Wheel> wheels;
+    private List<Wheel> wheels = new ArrayList<>(4);
 
     private boolean isFuel;
 
     public Car(String modelName) {
         this.modelName = modelName;
-        this.wheels = new ArrayList<>(4);
         this.isFuel = false;
     }
 
@@ -39,7 +39,7 @@ public class Car {
         this.engine = engine;
     }
 
-    public ArrayList<Wheel> getWheels() {
+    public List<Wheel> getWheels() {
         return wheels;
     }
 

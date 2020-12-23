@@ -21,6 +21,14 @@ public class Payment {
             this.price = price;
         }
 
+        public String getName() {
+            return name;
+        }
+
+        public int getPrice() {
+            return price;
+        }
+
         @Override
         public String toString() {
             return "Product{" +
@@ -32,25 +40,18 @@ public class Payment {
 
     private final List<Product> products = new ArrayList<>();
 
-    public Payment() {
-    }
-
     public void addProduct(String name, int price) {
         products.add(new Product(name, price));
     }
 
     public int getAmount() {
-        int amount = 0;
-
-        for (Product product : products) {
-            amount += product.price;
-        }
+        int amount = products.stream().mapToInt(Product::getPrice).sum();
 
         return amount;
     }
 
     public void printPayment(){
-        products.stream().forEach(System.out::println);
+        products.forEach(System.out::println);
         System.out.println("Total amount of payment = " + getAmount());
     }
 

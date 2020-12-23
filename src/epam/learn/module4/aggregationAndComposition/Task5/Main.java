@@ -6,8 +6,7 @@ import java.util.List;
 import static epam.learn.module4.aggregationAndComposition.Task5.TourAgency.printTours;
 import static epam.learn.module4.aggregationAndComposition.Task5.TourPackageType.EXCURSION;
 import static epam.learn.module4.aggregationAndComposition.Task5.Transport.PLANE;
-import static epam.learn.module4.aggregationAndComposition.Task5.TypeOfFood.BREAKFAST;
-import static epam.learn.module4.aggregationAndComposition.Task5.TypeOfFood.NOT_INCLUDED;
+import static epam.learn.module4.aggregationAndComposition.Task5.TypeOfFood.*;
 
 /**
  * Туристические путевки. Сформировать набор предложений клиенту по выбору туристической путевки
@@ -42,20 +41,18 @@ public class Main {
         tezTour.addTourPackage(new TourPackage("Италия", TourPackageType.RECREATION,
                 Transport.TRAIN, TypeOfFood.ALL_INCLUSIVE, 13, 1250));
 
-        System.out.println("Фильтрация по типу экскурсии и стране:");
-        List<TourPackage> tours1 = tezTour.searchToursByType(tezTour.getTourPackages(), EXCURSION);
-        tours1 = tezTour.searchToursByCountry(tours1, "Италия");
-        printTours(tours1);
+
+        System.out.println("Фильтрация по всем параметрам");
+        List<TourPackage> tours0 = tezTour.searchByManyFilters(tezTour.getTourPackages(), EXCURSION, "Италия",
+                PLANE,  0, 1200, 5, 14, ALL_INCLUSIVE);
+        printTours(tours0);
+
 
         System.out.println("\nФильтрация по транспорту, питанию, количеству дней:");
         List<TourPackage> tours2 = tezTour.searchToursByTransport(tezTour.getTourPackages(), PLANE);
         tours2 = tezTour.searchToursByFood(tours2, BREAKFAST);
         tours2 = tezTour.searchToursByDays(tours2, 5, 10);
         printTours(tours2);
-
-        System.out.println("\nФильтрация по питанию: завтраки или без питания");
-        List<TourPackage> tours3 = tezTour.searchToursByFood(tezTour.getTourPackages(), BREAKFAST, NOT_INCLUDED);
-        printTours(tours3);
 
     }
 }

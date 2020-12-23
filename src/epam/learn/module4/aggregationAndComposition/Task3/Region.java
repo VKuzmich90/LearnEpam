@@ -5,6 +5,7 @@ package epam.learn.module4.aggregationAndComposition.Task3;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Region {
 
@@ -12,14 +13,13 @@ public class Region {
 
     private City regionCenter;
 
-    private ArrayList<District> districts;
+    private List<District> districts = new ArrayList<>();
 
     private double area;
 
     public Region(String name, City regionCenter) {
         this.name = name;
         this.regionCenter = regionCenter;
-        this.districts = new ArrayList<>();
     }
 
     void addDistrict (District district) {
@@ -71,7 +71,7 @@ public class Region {
         this.regionCenter = regionCenter;
     }
 
-    public ArrayList<District> getDistricts() {
+    public List<District> getDistricts() {
         return districts;
     }
 

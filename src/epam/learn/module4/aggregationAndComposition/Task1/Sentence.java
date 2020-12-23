@@ -5,13 +5,13 @@ package epam.learn.module4.aggregationAndComposition.Task1;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Sentence {
 
-    private ArrayList<Word> words;
+    private List<Word> words = new ArrayList<>();
 
     public Sentence(Word word) {
-        this.words = new ArrayList<>();
         this.words.add(word);
     }
 
@@ -20,7 +20,7 @@ public class Sentence {
         this.words.add(word);
     }
 
-    public ArrayList<Word> getWords() {
+    public List<Word> getWords() {
         return words;
     }
 

@@ -6,7 +6,9 @@ package epam.learn.module4.aggregationAndComposition.Task5;
  */
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class TourAgency {
@@ -22,6 +24,27 @@ public class TourAgency {
     public void addTourPackage(TourPackage tour) {
         tourPackages.add(tour);
     }
+
+
+    public List<TourPackage> searchByManyFilters(List<TourPackage> tour, TourPackageType type, String country, Transport transport,
+                                                 int minPrice, int maxPrice, int minDays, int maxDays, TypeOfFood food) {
+
+        List<Predicate<TourPackage>> allPredicates = new ArrayList<Predicate<TourPackage>>();
+
+        allPredicates.add(tours -> tours.getType().equals(type));
+        allPredicates.add(tours -> tours.getFood().equals(food));
+        allPredicates.add(tours -> tours.getTransport().equals(transport));
+        allPredicates.add(tours -> tours.getCountry().equals(country));
+        allPredicates.add(tours -> tours.getPrice() >= minPrice && tours.getPrice() <= maxPrice);
+        allPredicates.add(tours -> tours.getNumberOfDays() >= minDays && tours.getNumberOfDays() <= maxDays);
+
+        List<TourPackage> result = tour.stream()
+                .filter(allPredicates.stream().reduce(x -> true, Predicate::and))
+                .collect(Collectors.toList());
+
+        return result;
+    }
+
 
     public List<TourPackage> searchToursByType(List<TourPackage> tours, TourPackageType type) {
         return tours.stream().filter(o -> o.getType().equals(type)).collect(Collectors.toList());
@@ -44,7 +67,7 @@ public class TourAgency {
     }
 
     public List<TourPackage> searchToursByFood(List<TourPackage> tours, TypeOfFood food) {
-       return tours.stream().filter(o -> o.getFood().equals(food)).collect(Collectors.toList());
+        return tours.stream().filter(o -> o.getFood().equals(food)).collect(Collectors.toList());
     }
 
     public List<TourPackage> searchToursByFood(List<TourPackage> tours, TypeOfFood food1, TypeOfFood food2) {
@@ -71,6 +94,15 @@ public class TourAgency {
                     tour.getCountry(), tour.getType(), tour.getTransport(), tour.getFood(),
                     tour.getNumberOfDays(), tour.getPrice());
         }
+    }
+
+
+    public void sortByPrice(List<TourPackage> tours) {
+        tours.sort(Comparator.comparing(TourPackage::getPrice));
+    }
+
+    public void sortByNumberOfDays(List<TourPackage> tours) {
+        tours.sort(Comparator.comparing(TourPackage::getNumberOfDays));
     }
 
 

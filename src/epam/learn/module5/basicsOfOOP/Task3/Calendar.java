@@ -1,50 +1,80 @@
 package epam.learn.module5.basicsOfOOP.Task3;
 
-/**Создать класс Календарь с внутренним классом, с помощью объектов которого можно хранить
-информацию о выходных и праздничных днях.
+/**
+ * Создать класс Календарь с внутренним классом, с помощью объектов которого можно хранить
+ * информацию о праздничных днях.
  */
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Calendar {
 
-    private final List<Holiday> holydays = new ArrayList<>();
+    private final List<Holiday> holidays = new ArrayList<>();
 
-    public Calendar() {
-    }
-
-    private static class Holiday {
-        String title;
+    public class Holiday {
+        String name;
         LocalDate date;
 
-        public Holiday(String title, LocalDate date) {
-            this.title = title;
+        public Holiday(String name, LocalDate date) {
+            this.name = name;
             this.date = date;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
 
         public LocalDate getDate() {
             return date;
         }
 
+        public void setDate(LocalDate date) {
+            this.date = date;
+        }
+
         @Override
         public String toString() {
             return "Holiday{" +
-                    "title='" + title + '\'' +
+                    "name='" + name + '\'' +
                     ", date=" + date +
                     '}';
         }
-
-
     }
 
-    public void addHolyday(String title, LocalDate date) {
-        holydays.add(new Holiday(title, date));
+    public void addHoliday(String name, LocalDate date) {
+        holidays.add(new Holiday(name, date));
     }
 
-    public void printHolydaysInRange(LocalDate fromDate, LocalDate toDate) {
-        System.out.println("Holydays in range: from " + fromDate + ", to " + toDate);
-        holydays.stream().filter(o -> o.date.isAfter(fromDate) && o.date.isBefore(toDate)).forEach(System.out::println);
+    public void deleteHoliday(String name) {
+        for (Holiday holiday : holidays) {
+
+            if (holiday.getName().equalsIgnoreCase(name)) {
+                holidays.remove(holiday);
+                break;
+            }
+        }
+    }
+
+    public void sortByName() {
+        holidays.sort(Comparator.comparing(Holiday::getName));
+    }
+
+    public void sortByDate() {
+        holidays.sort(Comparator.comparing(Holiday::getDate));
+    }
+
+    public void printHolidaysInRange(LocalDate fromDate, LocalDate toDate) {
+        System.out.println("\nHolidays in range: from " + fromDate + ", to " + toDate);
+        holidays.stream().filter(o -> o.date.isAfter(fromDate) && o.date.isBefore(toDate)).forEach(System.out::println);
+    }
+
+    public void printAllHolidays() {
+        System.out.println();
+        holidays.forEach(System.out::println);
     }
 }

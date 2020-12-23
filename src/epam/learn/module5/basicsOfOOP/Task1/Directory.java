@@ -5,45 +5,101 @@ package epam.learn.module5.basicsOfOOP.Task1;
  */
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Directory {
 
     private String name;
 
-    private ArrayList<File> files = new ArrayList<>();
+    private Directory directory;
+
+    private List<File> fileList = new ArrayList<>();
+
+    private List<Directory> directoryList = new ArrayList<>();
+
 
     public Directory(String name) {
         this.name = name;
+    }
+
+    public Directory(Directory directory, String name) {
+        this.directory = directory;
+        this.name = name;
+        getDirectory().addDirectory(this);
+    }
+
+    public Directory getDirectory() {
+        return directory;
+    }
+
+    public void setDirectory(Directory directory) {
+        this.directory = directory;
+    }
+
+    public List<Directory> getDirectoryList() {
+        return directoryList;
+    }
+
+    public void setDirectoryList(List<Directory> directoryList) {
+        this.directoryList = directoryList;
     }
 
     public String getName() {
         return name;
     }
 
-    public void changeDirectoryName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public ArrayList<File> getFiles() {
-        return files;
+    public List<File> getFiles() {
+        return fileList;
     }
 
-    public void addFile(File file) {
-        this.files.add(file);
+    public void setFileList(List<File> fileList) {
+        this.fileList = fileList;
     }
 
-    public void removeFile(String name) {
+    public void addDirectory(Directory directory) {
+        this.directoryList.add(directory);
+    }
 
-        for (int i = 0; i < files.size(); i++) {
+    public void removeDirectory(String name) {
 
-            if (files.get(i).getName().equalsIgnoreCase(name)) {
-                files.remove(i);
+        for (int i = 0; i < directoryList.size(); i++) {
+
+            if (directoryList.get(i).getName().equalsIgnoreCase(name)) {
+                directoryList.remove(i);
             }
         }
     }
 
-    public void printContent(){
-        System.out.println(name + ":");
-        files.stream().forEach(System.out::println);
+    public void addFile(File file) {
+        this.fileList.add(file);
     }
- }
+
+    public void removeFile(String name) {
+
+        for (int i = 0; i < fileList.size(); i++) {
+
+            if (fileList.get(i).getName().equalsIgnoreCase(name)) {
+                fileList.remove(i);
+            }
+        }
+    }
+
+    public void printContent() {
+        System.out.println(name + ":");
+        directoryList.forEach(System.out::println);
+        fileList.forEach(System.out::println);
+    }
+
+    @Override
+    public String toString() {
+        return "Directory{" +
+                "name='" + name + '\'' +
+                ", fileList=" + fileList +
+                ", directoryList=" + directoryList +
+                '}';
+    }
+}

@@ -14,7 +14,7 @@ package epam.learn.module5.basicsOfOOP.task4.action;
  * Реализовать возможность просмотра сокровищ, выбора самого дорогого по стоимости сокровища и выбора сокровищ на заданную сумму.
  */
 
-import epam.learn.module5.basicsOfOOP.task4.DragonAndTreasureMain;
+
 import epam.learn.module5.basicsOfOOP.task4.entity.*;
 
 import java.io.FileNotFoundException;

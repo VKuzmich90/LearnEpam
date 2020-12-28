@@ -1,8 +1,6 @@
 package epam.learn.module4.aggregationAndComposition.Task4;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Счета. Клиент может иметь несколько счетов в банке. Учитывать возможность блокировки/разблокировки счета.
@@ -14,21 +12,20 @@ public class Bank {
 
     private String name;
 
-    private List<Client> clients = new ArrayList<>();
+    //private List<Client> clients = new ArrayList<>();
+
+    private Map<String, Client> clientsMap = new HashMap<>();
 
     public Bank(String name) {
         this.name = name;
     }
 
     public Client getClient(String passportID) {
-        Optional<Client> person = clients.stream().filter(o -> o.getPassportID().equals(passportID)).findFirst();
-
-        return person.get();
-
+     return clientsMap.get(passportID);
     }
 
     public void addNewClient(Client client) {
-        clients.add(client);
+        clientsMap.put(client.getPassportID(), client);
     }
 
     public String getName() {
@@ -41,6 +38,6 @@ public class Bank {
 
     @Override
     public String toString() {
-        return String.format("В %s %d клиентов", name, clients.size());
+        return String.format("В %s %d клиентов", name, clientsMap.values().size());
     }
 }

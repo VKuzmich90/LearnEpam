@@ -6,7 +6,6 @@ public class Chocolate extends Sweetness{
         super(name, cost);
     }
 
-
     @Override
     public String toString() {
         return "Chocolate " + getCost() + "$";

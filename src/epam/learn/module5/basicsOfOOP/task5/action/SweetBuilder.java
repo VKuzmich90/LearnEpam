@@ -18,9 +18,11 @@ import epam.learn.module5.basicsOfOOP.task5.entity.sweets.*;
 public class SweetBuilder {
 
     public Sweetness getSweets(String name) {
+
         Sweetness toReturn = null;
 
         switch (name) {
+
             case "candy":
                 toReturn = new Candy("candy", 40);
                 break;

@@ -32,18 +32,15 @@ public class Main {
         belarusBank.getClient("MC1112233").getAccount(1).lock();
         System.out.println(belarusBank.getClient("MC1112233").getAccount(1).getStatus() + "\n");
 
-        //Сортируем счёта по балансу
-        belarusBank.getClient("MC1112233").sortByBalance();
+        //Выводим информацию о счетах
         System.out.println(belarusBank.getClient("MC1112233").getInformation());
-
-        belarusBank.getClient("MC4445577").sortByBalance();
         System.out.println(belarusBank.getClient("MC4445577").getInformation());
 
         //Выводим итоговый баланс
         System.out.println(ivanov.toString() + ", Итоговый баланс: " + ivanov.getBalance());
         System.out.println(petrov.toString() + ", Итоговый баланс: " + petrov.getBalance());
 
-        //Выводим отрицательый баланс счетов
+        //Выводим положительный баланс счетов
         System.out.println();
         System.out.println(ivanov.toString() + ", Положительный баланс: " + ivanov.getBalancePositiveAccounts());
         System.out.println(petrov.toString() + ", Положительный баланс: " + petrov.getBalancePositiveAccounts());
@@ -52,5 +49,7 @@ public class Main {
         System.out.println();
         System.out.println(ivanov.toString() + ", Отрицательный баланс: " + ivanov.getBalanceNegativeAccounts());
         System.out.println(petrov.toString() + ", Отрицательный баланс: " + petrov.getBalanceNegativeAccounts());
+
+
     }
 }

@@ -14,6 +14,8 @@ package epam.learn.module5.basicsOfOOP.task4.action;
  * Реализовать возможность просмотра сокровищ, выбора самого дорогого по стоимости сокровища и выбора сокровищ на заданную сумму.
  */
 
+import epam.learn.module5.basicsOfOOP.task4.entity.Cave;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -54,17 +56,17 @@ public class ConsoleMenuAction {
 
     public boolean processingOperation(int choice) {
 
-        TreasureAction treasureAction = new TreasureAction();
+        Cave smaugCave = new Cave("Smaug cave");
 
         switch (choice){
             case 1:
                 System.out.println("List of treasures in the cave:");
-                treasureAction.showAllTreasure();
+                smaugCave.showAllTreasure();
                 break;
 
             case 2:
                 System.out.println("The most expensive treasure:");
-                System.out.println(treasureAction.chooseMostExpensive());
+                System.out.println(smaugCave.chooseMostExpensive());
                 break;
 
             case 3:
@@ -85,7 +87,7 @@ public class ConsoleMenuAction {
                     }
                 }
                 System.out.println(String.format("Treasures value from %d to %d:", valueRange[0], valueRange[1]));
-                treasureAction.selectForGivenAmount(valueRange);
+                smaugCave.selectForGivenAmount(valueRange);
                 break;
 
             case 4:

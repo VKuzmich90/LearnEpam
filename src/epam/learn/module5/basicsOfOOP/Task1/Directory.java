@@ -7,33 +7,19 @@ package epam.learn.module5.basicsOfOOP.Task1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Directory {
-
-    private String name;
-
-    private Directory directory;
+public class Directory extends Element{
 
     private List<File> fileList = new ArrayList<>();
 
     private List<Directory> directoryList = new ArrayList<>();
 
-
-    public Directory(String name) {
-        this.name = name;
-    }
-
-    public Directory(Directory directory, String name) {
-        this.directory = directory;
-        this.name = name;
+    public Directory(String name, Directory directory) {
+        super(name, directory);
         getDirectory().addDirectory(this);
     }
 
-    public Directory getDirectory() {
-        return directory;
-    }
-
-    public void setDirectory(Directory directory) {
-        this.directory = directory;
+    public Directory(String name) {
+        super(name);
     }
 
     public List<Directory> getDirectoryList() {
@@ -44,15 +30,7 @@ public class Directory {
         this.directoryList = directoryList;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<File> getFiles() {
+    public List<File> getFileList() {
         return fileList;
     }
 
@@ -89,7 +67,7 @@ public class Directory {
     }
 
     public void printContent() {
-        System.out.println(name + ":");
+        System.out.println(getName() + ":");
         directoryList.forEach(System.out::println);
         fileList.forEach(System.out::println);
     }
@@ -97,7 +75,7 @@ public class Directory {
     @Override
     public String toString() {
         return "Directory{" +
-                "name='" + name + '\'' +
+                "name='" + getName() + '\'' +
                 ", fileList=" + fileList +
                 ", directoryList=" + directoryList +
                 '}';

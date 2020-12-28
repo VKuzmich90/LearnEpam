@@ -7,14 +7,15 @@ public class TextFile extends File {
 
     private String text;
 
-    public TextFile(Directory directory, String name) {
-        super(directory, name);
-        text = "";
+    public TextFile(String name, Directory directory) {
+        super(name, directory);
         super.getDirectory().addFile(this);
+        text = "";
     }
 
     public TextFile(String name) {
         super(name);
+        text = "";
     }
 
     public void addText(String line) {

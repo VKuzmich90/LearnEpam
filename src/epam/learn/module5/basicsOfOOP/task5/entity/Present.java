@@ -9,6 +9,7 @@ import java.util.List;
 public class Present {
 
     private final List<Sweetness> sweets = new ArrayList<>();
+
     private Box box;
 
     public Present(Box box) {

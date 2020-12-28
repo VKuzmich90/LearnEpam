@@ -8,6 +8,12 @@ public abstract class Treasure {
 
     private String descriptionOfTreasure;
 
+    public Treasure(String name, int value, String descriptionOfTreasure) {
+        this.name = name;
+        this.value = value;
+        this.descriptionOfTreasure = descriptionOfTreasure;
+    }
+
     public String getName() {
         return name;
     }
@@ -24,9 +30,13 @@ public abstract class Treasure {
         this.value = value;
     }
 
-    public abstract String getDescriptionOfTreasure();
+    public String getDescriptionOfTreasure() {
+        return descriptionOfTreasure;
+    }
 
-    public abstract void setDescriptionOfTreasure(String descriptionOfTreasure);
+    public void setDescriptionOfTreasure(String descriptionOfTreasure) {
+        this.descriptionOfTreasure = descriptionOfTreasure;
+    }
 
     @Override
     public abstract String toString();

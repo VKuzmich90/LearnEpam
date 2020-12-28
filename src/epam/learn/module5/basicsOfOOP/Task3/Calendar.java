@@ -60,16 +60,19 @@ public class Calendar {
         }
     }
 
-    public void sortByName() {
-        holidays.sort(Comparator.comparing(Holiday::getName));
+    public List<Holiday> sortByName() {
+        List<Holiday> holidays2 = new ArrayList<>(holidays);
+        holidays2.sort(Comparator.comparing(Holiday::getName));
+        return holidays2;
     }
 
-    public void sortByDate() {
-        holidays.sort(Comparator.comparing(Holiday::getDate));
+    public List<Holiday> sortByDate() {
+        List<Holiday> holidays2 = new ArrayList<>(holidays);
+        holidays2.sort(Comparator.comparing(Holiday::getDate));
+        return holidays2;
     }
 
     public void printHolidaysInRange(LocalDate fromDate, LocalDate toDate) {
-        System.out.println("\nHolidays in range: from " + fromDate + ", to " + toDate);
         holidays.stream().filter(o -> o.date.isAfter(fromDate) && o.date.isBefore(toDate)).forEach(System.out::println);
     }
 

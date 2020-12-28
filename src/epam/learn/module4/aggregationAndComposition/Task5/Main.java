@@ -43,15 +43,23 @@ public class Main {
 
 
         System.out.println("Фильтрация по всем параметрам");
-        List<TourPackage> tours0 = tezTour.searchByManyFilters(tezTour.getTourPackages(), EXCURSION, "Италия",
-                PLANE,  0, 1200, 5, 14, ALL_INCLUSIVE);
+        List<TourPackage> tours0 = tezTour.search()
+                .withType(EXCURSION)
+                .withCountry("Италия")
+                .withTransport(PLANE)
+                .withPrice(0, 1200)
+                .withDays(5, 14)
+                .withFood(ALL_INCLUSIVE)
+                .execute();
         printTours(tours0);
 
 
         System.out.println("\nФильтрация по транспорту, питанию, количеству дней:");
-        List<TourPackage> tours2 = tezTour.searchToursByTransport(tezTour.getTourPackages(), PLANE);
-        tours2 = tezTour.searchToursByFood(tours2, BREAKFAST);
-        tours2 = tezTour.searchToursByDays(tours2, 5, 10);
+        List<TourPackage> tours2 = tezTour.search()
+                .withTransport(PLANE)
+                .withFood(BREAKFAST)
+                .withDays(5, 10)
+                .execute();
         printTours(tours2);
 
     }

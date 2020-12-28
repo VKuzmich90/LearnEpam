@@ -5,42 +5,15 @@ package epam.learn.module5.basicsOfOOP.Task1;
  * Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить.
  */
 
-public abstract class File {
+public class File extends Element{
 
-    private Directory directory;
-
-    private String name;
-
-    public File(Directory directory, String name) {
-        this.directory = directory;
-        this.name = name;
+    public File(String name, Directory directory) {
+        super(name, directory);
     }
 
     public File(String name) {
-        this.name = name;
+        super(name);
     }
 
-    public Directory getDirectory() {
-        return directory;
-    }
-
-    public void setDirectory(Directory directory) {
-        this.directory = directory;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    @Override
-    public String toString() {
-        return "File{" +
-                "name='" + name + '\'' +
-                '}';
-    }
 }
+

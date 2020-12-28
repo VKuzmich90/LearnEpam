@@ -1,12 +1,11 @@
 package epam.learn.module4.aggregationAndComposition.Task4;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
-/**Счета. Клиент может иметь несколько счетов в банке. Учитывать возможность блокировки/разблокировки счета.
- Реализовать поиск и сортировку счетов. Вычисление общей суммы по счетам. Вычисление суммы по всем счетам,
- имеющим положительный и отрицательный балансы отдельно.
+/**
+ * Счета. Клиент может иметь несколько счетов в банке. Учитывать возможность блокировки/разблокировки счета.
+ * Реализовать поиск и сортировку счетов. Вычисление общей суммы по счетам. Вычисление суммы по всем счетам,
+ * имеющим положительный и отрицательный балансы отдельно.
  */
 
 public class Client {
@@ -17,7 +16,7 @@ public class Client {
 
     private String passportID;
 
-    private List<Account> accounts = new ArrayList<>();
+    private Map<Integer, Account> accountsMap = new HashMap<>();
 
     public Client(String firstName, String lastName, String passportID) {
         this.firstName = firstName;
@@ -25,20 +24,20 @@ public class Client {
         this.passportID = passportID;
     }
 
-    public String getBalance() {
+    public double getBalance() {
         double balance = 0;
 
-        for (Account account : accounts) {
+        for (Account account : accountsMap.values()) {
             balance += account.getBalance();
         }
 
-        return String.format("%.2f BYN", balance);
+        return balance;
     }
 
-    public String getBalancePositiveAccounts() {
+    public double getBalancePositiveAccounts() {
         double balance = 0;
 
-        for (Account account : accounts) {
+        for (Account account : accountsMap.values()) {
 
             if (account.getBalance() > 0) {
                 balance += account.getBalance();
@@ -46,13 +45,13 @@ public class Client {
 
         }
 
-        return String.format("%.2f BYN", balance);
+        return balance;
     }
 
-    public String getBalanceNegativeAccounts() {
+    public double getBalanceNegativeAccounts() {
         double balance = 0;
 
-        for (Account account : accounts) {
+        for (Account account : accountsMap.values()) {
 
             if (account.getBalance() < 0) {
                 balance += account.getBalance();
@@ -60,34 +59,28 @@ public class Client {
 
         }
 
-        return String.format("%.2f BYN", balance);
+        return balance;
     }
 
-    public void sortByBalance() {
-        accounts.sort(Comparator.comparing(Account::getBalance));
+    public List<Account> sortByBalance() {
+        List<Account> accountList = new ArrayList<>(accountsMap.values());
+        accountList.sort(Comparator.comparing(Account::getBalance));
+
+        return accountList;
     }
 
-    public Account getAccount (long id) {
-
-        for (Account client : accounts) {
-
-            if (client.getId() == id) {
-
-                return client;
-            }
-        }
-
-        return null;
+    public Account getAccount(Integer id) {
+        return accountsMap.get(id);
     }
 
-    public void openAccount (Account account) {
-        accounts.add(account);
+    public void openAccount(Account account) {
+        accountsMap.put(account.getId(), account);
     }
 
-    public String getInformation () {
+    public String getInformation() {
         String information = "";
 
-        for (Account account : accounts) {
+        for (Account account : accountsMap.values()) {
             information += String.format("#%d, баланс: %.2f BYN, cтатус: %s\n", account.getId(), account.getBalance(), account.getStatus());
         }
         return String.format("У клиента %s следующие счета:\n%s", toString(), information);

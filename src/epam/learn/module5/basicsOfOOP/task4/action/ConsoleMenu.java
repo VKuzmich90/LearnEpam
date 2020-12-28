@@ -1,4 +1,4 @@
-package epam.learn.module5.basicsOfOOP.task4.entity;
+package epam.learn.module5.basicsOfOOP.task4.action;
 
 import epam.learn.module5.basicsOfOOP.task4.action.ConsoleMenuAction;
 

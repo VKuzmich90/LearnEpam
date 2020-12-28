@@ -14,7 +14,7 @@ package epam.learn.module5.basicsOfOOP.task4;
  * Реализовать возможность просмотра сокровищ, выбора самого дорогого по стоимости сокровища и выбора сокровищ на заданную сумму.
  */
 
-import epam.learn.module5.basicsOfOOP.task4.entity.ConsoleMenu;
+import epam.learn.module5.basicsOfOOP.task4.action.ConsoleMenu;
 
 public class DragonAndTreasureMain {
 

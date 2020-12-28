@@ -6,26 +6,26 @@ package epam.learn.module4.aggregationAndComposition.Task4;
 
 public class Account {
 
-    private long id;
+    private Integer id;
 
-    private double balance;
+    private Double balance;
 
     private boolean isOpen = true;
 
-    public Account(double balance, long id) {
+    public Account(Double balance, Integer id) {
         this.balance = balance;
         this.id = id;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public double getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
 

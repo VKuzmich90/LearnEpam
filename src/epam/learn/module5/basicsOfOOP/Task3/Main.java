@@ -25,16 +25,12 @@ public class Main {
         calendar.addHoliday("7 ноября", LocalDate.parse("2020-11-07"));
         calendar.addHoliday("Рождество католическое", LocalDate.parse("2020-12-25"));
 
+
         calendar.printHolidaysInRange(LocalDate.parse("2020-03-01"), LocalDate.parse("2020-12-01"));
         calendar.deleteHoliday("7 ноября");
         calendar.printHolidaysInRange(LocalDate.parse("2020-03-01"), LocalDate.parse("2020-12-01"));
 
-        calendar.sortByName();
-        calendar.printAllHolidays();
-
-        calendar.sortByDate();
-        calendar.printAllHolidays();
-
+        System.out.println(calendar.sortByName());
 
     }
 }

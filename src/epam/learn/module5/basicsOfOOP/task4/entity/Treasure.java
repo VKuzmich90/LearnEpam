@@ -4,11 +4,11 @@ public abstract class Treasure {
 
     private String name;
 
-    private int value;
+    private Integer value;
 
     private String descriptionOfTreasure;
 
-    public Treasure(String name, int value, String descriptionOfTreasure) {
+    public Treasure(String name, Integer value, String descriptionOfTreasure) {
         this.name = name;
         this.value = value;
         this.descriptionOfTreasure = descriptionOfTreasure;
@@ -22,11 +22,11 @@ public abstract class Treasure {
         this.name = name;
     }
 
-    public int getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 

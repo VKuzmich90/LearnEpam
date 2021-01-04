@@ -4,20 +4,19 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalInt;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Cave {
 
     private String name;
-
-    private int numberOfTreasure;
 
     private List<Treasure> treasures = fillCaveWithTreasures(100);
 
 
     public Cave(String name) {
         this.name = name;
-        this.numberOfTreasure = 100;
     }
 
     public void showAllTreasure() {
@@ -25,19 +24,7 @@ public class Cave {
     }
 
     public Treasure chooseMostExpensive() {
-
-        int highestPrice = 0;
-        Treasure mostExpensiveTreasure = null;
-
-        for (Treasure element : treasures) {
-
-            if (element.getValue() > highestPrice) {
-                highestPrice = element.getValue();
-                mostExpensiveTreasure = element;
-            }
-        }
-
-        return mostExpensiveTreasure;
+        return treasures.stream().max((t1, t2) -> t1.getValue().compareTo(t2.getValue())).get();
     }
 
     public void selectForGivenAmount(int[] valueRange) {
@@ -55,7 +42,6 @@ public class Cave {
             return;
         }
 
-        int id = 1;
         treasures2.forEach(System.out::println);
     }
 
@@ -119,14 +105,6 @@ public class Cave {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getNumberOfTreasure() {
-        return numberOfTreasure;
-    }
-
-    public void setNumberOfTreasure(int numberOfTreasure) {
-        this.numberOfTreasure = numberOfTreasure;
     }
 
     public List<Treasure> getTreasures() {

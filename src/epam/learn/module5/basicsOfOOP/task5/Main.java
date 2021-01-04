@@ -16,6 +16,7 @@ package epam.learn.module5.basicsOfOOP.task5;
 import epam.learn.module5.basicsOfOOP.task5.action.Application;
 
 public class Main {
+
     public static void main(String[] args) {
 
         Application present = new Application();

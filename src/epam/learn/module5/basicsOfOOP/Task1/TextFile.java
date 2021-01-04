@@ -9,7 +9,7 @@ public class TextFile extends File {
 
     public TextFile(String name, Directory directory) {
         super(name, directory);
-        super.getDirectory().addFile(this);
+        super.getDirectory().addElement(this);
         text = "";
     }
 

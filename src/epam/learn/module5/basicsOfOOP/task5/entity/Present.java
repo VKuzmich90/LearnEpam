@@ -3,12 +3,12 @@ package epam.learn.module5.basicsOfOOP.task5.entity;
 import epam.learn.module5.basicsOfOOP.task5.entity.packaging.Box;
 import epam.learn.module5.basicsOfOOP.task5.entity.sweets.Sweetness;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Present {
 
-    private final List<Sweetness> sweets = new ArrayList<>();
+    private final List<Sweetness> sweets = new LinkedList<>();
 
     private Box box;
 

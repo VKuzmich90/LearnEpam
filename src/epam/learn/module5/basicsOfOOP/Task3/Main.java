@@ -30,7 +30,7 @@ public class Main {
         calendar.deleteHoliday("7 ноября");
         calendar.printHolidaysInRange(LocalDate.parse("2020-03-01"), LocalDate.parse("2020-12-01"));
 
-        System.out.println(calendar.sortByName());
+        System.out.println(calendar.getHolidaysSortByName());
 
     }
 }

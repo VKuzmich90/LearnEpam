@@ -10,7 +10,7 @@ import java.util.*;
 
 public class Calendar {
 
-    private final List<Holiday> holidays = new ArrayList<>();
+    private final List<Holiday> holidays = new LinkedList<>();
 
     public class Holiday {
         String name;
@@ -60,14 +60,14 @@ public class Calendar {
         }
     }
 
-    public List<Holiday> sortByName() {
-        List<Holiday> holidays2 = new ArrayList<>(holidays);
+    public List<Holiday> getHolidaysSortByName() {
+        List<Holiday> holidays2 = new LinkedList<>(holidays);
         holidays2.sort(Comparator.comparing(Holiday::getName));
         return holidays2;
     }
 
-    public List<Holiday> sortByDate() {
-        List<Holiday> holidays2 = new ArrayList<>(holidays);
+    public List<Holiday> getHolidaysSortByDate() {
+        List<Holiday> holidays2 = new LinkedList<>(holidays);
         holidays2.sort(Comparator.comparing(Holiday::getDate));
         return holidays2;
     }

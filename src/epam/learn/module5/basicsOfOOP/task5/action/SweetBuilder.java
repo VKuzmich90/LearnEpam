@@ -15,9 +15,13 @@ package epam.learn.module5.basicsOfOOP.task5.action;
 
 import epam.learn.module5.basicsOfOOP.task5.entity.sweets.*;
 
-public class SweetBuilder {
+public final class SweetBuilder {
 
-    public Sweetness getSweets(String name) {
+    public SweetBuilder() {
+        super();
+    }
+
+    public static Sweetness getSweets(String name) {
 
         Sweetness toReturn = null;
 

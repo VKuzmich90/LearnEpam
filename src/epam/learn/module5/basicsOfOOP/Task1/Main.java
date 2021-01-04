@@ -26,7 +26,7 @@ public class Main {
 
         File textFile3 = new TextFile("textFile3.txt", package1);
 
-        package1.removeFile("textFile1.txt");
+        package1.removeElement("textFile1.txt");
 
         package1.printContent();
 

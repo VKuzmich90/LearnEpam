@@ -4,80 +4,53 @@ package epam.learn.module5.basicsOfOOP.Task1;
  * Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить.
  */
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
-public class Directory extends Element{
+public class Directory extends Element {
 
-    private List<File> fileList = new ArrayList<>();
-
-    private List<Directory> directoryList = new ArrayList<>();
+    private List<Element> elementList = new LinkedList<>();
 
     public Directory(String name, Directory directory) {
         super(name, directory);
-        getDirectory().addDirectory(this);
+        getDirectory().addElement(this);
     }
 
     public Directory(String name) {
         super(name);
     }
 
-    public List<Directory> getDirectoryList() {
-        return directoryList;
+    public List<Element> getElementList() {
+        return elementList;
     }
 
-    public void setDirectoryList(List<Directory> directoryList) {
-        this.directoryList = directoryList;
+    public void setElementList(List<Element> elementList) {
+        this.elementList = elementList;
     }
 
-    public List<File> getFileList() {
-        return fileList;
+    public void addElement(Element element) {
+        this.elementList.add(element);
     }
 
-    public void setFileList(List<File> fileList) {
-        this.fileList = fileList;
-    }
+    public void removeElement(String name) {
+        for (Element element : elementList) {
 
-    public void addDirectory(Directory directory) {
-        this.directoryList.add(directory);
-    }
-
-    public void removeDirectory(String name) {
-
-        for (int i = 0; i < directoryList.size(); i++) {
-
-            if (directoryList.get(i).getName().equalsIgnoreCase(name)) {
-                directoryList.remove(i);
+            if (element.getName().equalsIgnoreCase(name)) {
+                elementList.remove(element);
+                break;
             }
         }
     }
 
-    public void addFile(File file) {
-        this.fileList.add(file);
-    }
-
-    public void removeFile(String name) {
-
-        for (int i = 0; i < fileList.size(); i++) {
-
-            if (fileList.get(i).getName().equalsIgnoreCase(name)) {
-                fileList.remove(i);
-            }
-        }
-    }
-
-    public void printContent() {
+        public void printContent() {
         System.out.println(getName() + ":");
-        directoryList.forEach(System.out::println);
-        fileList.forEach(System.out::println);
+        elementList.forEach(System.out::println);
     }
 
     @Override
     public String toString() {
         return "Directory{" +
-                "name='" + getName() + '\'' +
-                ", fileList=" + fileList +
-                ", directoryList=" + directoryList +
+                "name=" + getName() + " " + elementList +
                 '}';
     }
 }
